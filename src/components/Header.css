@@ -1,0 +1,112 @@
+
+/* Container principal que segura tudo */
+.header-container {
+    background-color: #FFFFFF;
+    padding: 20px 60px; /* Espaçamento interno */
+    font-family: 'Inter', sans-serif; /* Fonte padrão sugerida */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05); /* Sombra leve em baixo */
+    
+}
+
+/* --- PARTE DE CIMA (Logo + Busca + Botões) --- */
+.header-top {
+    display: flex;              /* Ativa o modo flexbox */
+    justify-content: space-between; /* Empurra um filho para cada ponta e um no meio */
+    align-items: center;       /* Garante que fiquem alinhados na altura (vertical) */
+}
+
+/* Barra de Pesquisa */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #f5f5f5; /* Cinza bem clarinho */
+    border-radius: 8px;
+    padding: 0 15px;
+    width: 40%; /* A barra ocupa 40% do espaço */
+    transition: box-shadow 0.3s ease,border-color 0.3s ease;
+    border: 1px solid transparent; /* Borda padrão transparente */
+}
+.search-bar:focus-within {
+    border-color: aqua; /* Borda azul ao focar */
+}
+.search-bar input {
+    border: none;
+    background: transparent;
+    padding: 15px 10px;
+    width: 100%;
+    outline: none; /* Tira a borda azul ao clicar */
+    color: #666;
+
+}
+
+/* Ícone de lupa (simulado com texto por enquanto) */
+.search-icon {
+    color: #999;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Área de Cadastro e Login */
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Espaço entre os links */
+}
+
+.link-cadastro {
+    color: #474747;
+    text-decoration: none;
+    font-size: 14px;
+    border-bottom: 1px solid #474747; /* O sublinhado cinza */
+}
+
+.btn-entrar {
+    background-color: #C92071; /* ROSA DA DRIP STORE */
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-entrar:hover {
+    background-color: #991555; /* Rosa mais escuro ao passar o mouse */
+}
+
+.cart-icon {
+    color: #C92071; /* Carrinho rosa */
+    font-size: 24px;
+    cursor: pointer;
+    position: relative;
+}
+
+
+/* Note que aqui pegamos a ul que está dentro da classe header-nav */
+.header-nav ul {
+    display: flex;              /* Coloca os itens lado a lado */
+    justify-content: flex-start; /* Alinha tudo à esquerda (ou 'center' se preferires) */
+    gap: 30px;                  /* Cria um espaço de 30px entre cada link */
+    list-style: none;           /* Remove as bolinhas da lista */
+    padding: 0;                 /* Remove o recuo padrão */
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #474747;
+    font-size: 16px;
+    padding-bottom: 5px;
+}
+
+/* Classe especial para o link ativo (Home) */
+.nav-link.active {
+    color: #C92071;
+    font-weight: bold;
+    border-bottom: 2px solid #C92071;
+}
+
+.nav-link:hover {
+    color: #C92071;
+}
