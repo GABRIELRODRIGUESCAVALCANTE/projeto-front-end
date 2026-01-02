@@ -45,7 +45,10 @@ const Header = () => {
         <div className="user-actions">
             <Link to="/cadastro" className="link-cadastro">Cadastre-se</Link>
             <Link to="/login" className="btn-entrar">Entrar</Link>
-            <div className="cart-icon">🛒</div>
+           <div className="cart-icon">
+            🛒 
+            <span className="cart-count">0</span>
+        </div>
         </div>
       </div>
 

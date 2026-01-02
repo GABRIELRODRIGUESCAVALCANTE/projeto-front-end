@@ -1,0 +1,138 @@
+/* src/components/Footer/Footer.css */
+
+.footer-container {
+    background-color: #1F1F1F;
+    color: #FFFFFF;
+    /* REDUZI O PADDING: Antes era 60px 100px, agora diminuí para ficar mais compacto */
+    padding: 40px 60px 20px 60px; 
+    font-family: 'Inter', sans-serif;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between; /* Separa esquerda e direita */
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+
+/* --- LADO ESQUERDO (Logo e Redes) --- */
+.footer-col-left {
+    width: 30%; /* Define um tamanho fixo para não empurrar os outros */
+    min-width: 250px; /* Garante que não fica espremido demais */
+}
+
+/* --- LADO DIREITO (As colunas de texto) --- */
+.footer-col-right {
+    display: flex;
+    justify-content: space-between; /* Espalha as 3 colunas */
+    width: 60%; /* Ocupa o resto do espaço da tela */
+    gap: 20px; /* Espaço entre as colunas (diminuí de 60px para caber tudo) */
+}
+
+/* Estilo de cada coluna pequena (Informação, Categorias...) */
+.footer-info-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-col-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px; /* Menos espaço abaixo do título */
+    color: #FFFFFF;
+}
+
+.footer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Itens mais juntinhos */
+}
+
+.footer-link {
+    text-decoration: none;
+    color: #F5F5F5;
+    font-size: 14px; /* Fonte um pouco menor para ficar delicado */
+    transition: color 0.3s;
+    line-height: 1.8; 
+    display: block;
+}
+
+.footer-link:hover {
+    color: #C92071;
+    text-decoration: underline;
+}
+
+/* --- LOGO BRANCA --- */
+.logo-white-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.logo-white-container img {
+    filter: brightness(0) invert(1);
+    width: 30px; /* Garante que a logo não fica gigante */
+    height: auto;
+}
+
+.logo-white-container .nome-loja-footer {
+    color: #FFFFFF;
+    font-size: 24px; /* Diminuí um pouco o tamanho da fonte do nome */
+    font-weight: bold;
+}
+
+.footer-description {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 25px;
+    color: #F5F5F5;
+    max-width: 300px; /* Impede o texto de ficar muito largo */
+}
+
+/* Ícones Sociais */
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons img {
+    width: 20px; /* Ícones um pouco menores */
+    height: 20px;
+}
+
+.social-icons a {
+    transition: transform 0.2s;
+}
+
+.social-icons a:hover {
+    transform: scale(1.1);
+}
+
+/* --- RODAPÉ FINAL --- */
+.footer-container hr {
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.footer-copyright {
+    text-align: center;
+    font-size: 12px;
+    color: #F5F5F5;
+}
+
+/* --- RESPONSIVIDADE (Para telas pequenas não quebrarem) --- */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column; /* Em celular, volta a ficar um embaixo do outro */
+        gap: 40px;
+    }
+    .footer-col-left, .footer-col-right {
+        width: 100%;
+    }
+    .footer-col-right {
+        flex-wrap: wrap; /* Permite quebrar linha se necessário no celular */
+    }
+}

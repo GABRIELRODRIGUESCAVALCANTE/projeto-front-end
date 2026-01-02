@@ -130,3 +130,30 @@
 .nav-link:hover {
     color: #C92071;
 }
+/* src/components/Header/Header.css */
+
+.cart-icon {
+    position: relative; /* IMPORTANTE: Define o limite para a bolinha não fugir */
+    cursor: pointer;
+    /* Se tiver margin-left aqui, mantenha */
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;  /* Sobe um pouco */
+    right: -12px; /* Vai para a direita */
+    
+    background-color: #C92071; /* Rosa da marca (ou vermelho #EE4266) */
+    color: white;
+    
+    font-size: 12px;
+    font-weight: bold;
+    
+    width: 20px;
+    height: 20px;
+    border-radius: 50%; /* Faz virar uma bolinha perfeita */
+    
+    display: flex;             /* Centraliza o número */
+    justify-content: center;
+    align-items: center;
+}
