@@ -1,51 +1,90 @@
-import React from 'react';
-import Logo from './Logo'; // Importando seu componente de Logo existente
-import './Header.css'; // Importando o CSS que acabamos de criar
+import React, { useState } from 'react'; // 1. Importamos o useState
+import Logo from './Logo';
+import './Header.css';
+import { useNavigate, Link, NavLink } from 'react-router-dom';
 
 const Header = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const navigate = useNavigate();
+
+  const handleSearch = () => {
+    if (searchTerm.trim()) {
+      navigate(`/products?filter=${searchTerm}`);
+    }
+  }
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
+  }
+
   return (
     <header className="header-container">
       
       {/* === LINHA DE CIMA === */}
       <div className="header-top">
-        
-        {/* 1. Logo */}
-        <Logo />
-
-        {/* 2. Barra de Busca */}
-        <div className="search-bar">
-            <input type="text" placeholder="Pesquisar produto..." />
-            <span className="search-icon">🔍</span> {/* Ícone Lupa */}
+        <div className="logo-container">
+            <Logo />
+            <div className="nome-loja">React Store</div>
         </div>
 
-        {/* 3. Ações (Cadastro, Botão Entrar, Carrinho) */}
+        <div className="search-bar">
+            <input 
+              type="text" 
+              placeholder="Pesquisar produto..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              onKeyDown={handleKeyDown}
+            />
+            <span className="search-icon" onClick={handleSearch}>
+              🔍
+            </span> 
+        </div>
+
         <div className="user-actions">
-            <a href="/cadastro" className="link-cadastro">Cadastre-se</a>
-            
-            <button className="btn-entrar">Entrar</button>
-            
-            <div className="cart-icon">
-                🛒 {/* Ícone Carrinho */}
-                {/* Aqui poderia ter uma bolinha com o número '2' como na foto */}
-            </div>
+            <Link to="/cadastro" className="link-cadastro">Cadastre-se</Link>
+            <Link to="/login" className="btn-entrar">Entrar</Link>
+            <div className="cart-icon">🛒</div>
         </div>
       </div>
 
-      {/* === LINHA DE BAIXO (MENU) === */}
+      {/* === LINHA DE BAIXO (MENU INTELIGENTE) === */}
       <div className="header-nav">
         <nav>
             <ul>
                 <li>
-                    <a href="/" className="nav-link active">Home</a>
+                    {/* O NavLink verifica se está ativo e muda a classe sozinho */}
+                    <NavLink 
+                        to="/" 
+                        className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+                    >
+                        Home
+                    </NavLink>
                 </li>
                 <li>
-                    <a href="/produtos" className="nav-link">Produtos</a>
+                    <NavLink 
+                        to="/produtos" 
+                        className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+                    >
+                        Produtos
+                    </NavLink>
                 </li>
                 <li>
-                    <a href="/categorias" className="nav-link">Categorias</a>
+                    <NavLink 
+                        to="/categorias" 
+                        className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+                    >
+                        Categorias
+                    </NavLink>
                 </li>
                 <li>
-                    <a href="/meus-pedidos" className="nav-link">Meus Pedidos</a>
+                    <NavLink 
+                        to="/meus-pedidos" 
+                        className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+                    >
+                        Meus Pedidos
+                    </NavLink>
                 </li>
             </ul>
         </nav>

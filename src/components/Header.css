@@ -25,6 +25,7 @@
     width: 40%; /* A barra ocupa 40% do espaço */
     transition: box-shadow 0.3s ease,border-color 0.3s ease;
     border: 1px solid transparent; /* Borda padrão transparente */
+    margin-left: 30px;
 }
 .search-bar:focus-within {
     border-color: aqua; /* Borda azul ao focar */
@@ -38,6 +39,17 @@
     color: #666;
 
 }
+.logo-container {
+    display: flex;       /* Coloca Logo e Texto lado a lado */
+    align-items: center; /* Alinha o texto na vertical com a imagem */
+    gap: 10px;           /* Dá um espaço de 10px entre a imagem e o texto */
+}
+.nome-loja {
+    font-size: 36px;       /* <-- MUDEI AQUI: De 24px para 36px */
+    font-weight: bold;
+    color: #C92071;
+    line-height: 1;        /* Ajuda a alinhar melhor quando a letra é grande */
+}
 
 /* Ícone de lupa (simulado com texto por enquanto) */
 .search-icon {
@@ -48,27 +60,35 @@
 
 /* Área de Cadastro e Login */
 .user-actions {
-    display: flex;
+   display: flex;
     align-items: center;
-    gap: 30px; /* Espaço entre os links */
+    gap: 30px;
 }
 
 .link-cadastro {
-    color: #474747;
-    text-decoration: none;
-    font-size: 14px;
-    border-bottom: 1px solid #474747; /* O sublinhado cinza */
+   color: #474747; 
+    font-size: 16px;
+    text-decoration: underline; /* O sublinhado exigido */
+    font-weight: 400; /* Peso normal */
+    cursor: pointer;
 }
 
 .btn-entrar {
-    background-color: #C92071; /* ROSA DA DRIP STORE */
-    color: white;
+  display: flex;             /* Para alinhar o texto no centro */
+    justify-content: center;
+    align-items: center;
+    
+    width: 114px;              /* Largura exata */
+    height: 40px;              /* Altura exata */
+    border-radius: 4px;        /* Arredondamento exato */
+    
+    background-color: #C92071; /* Cor Primary */
+    color: #FFFFFF;            /* Cor White */
+    font-weight: bold;         /* Negrito */
+    font-size: 14px;           /* Tamanho da fonte */
+    
+    text-decoration: none;     /* Remove o sublinhado padrão de links */
     border: none;
-    padding: 10px 30px;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 14px;
-    cursor: pointer;
     transition: background-color 0.3s;
 }
 
