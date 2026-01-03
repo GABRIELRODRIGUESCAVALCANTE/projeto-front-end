@@ -27,7 +27,7 @@ const FooterInformation = ({ title, informations }) => {
 const Footer = () => {
   // DADOS 1: Informações
   const informationList = [
-    { text: "Sobre Drip Store", link: "/about" },
+    { text: "Sobre a React Store", link: "/about" },
     { text: "Segurança", link: "/security" },
     { text: "Wishlist", link: "/wishlist" },
     { text: "Blog", link: "/blog" },
@@ -58,7 +58,7 @@ const Footer = () => {
         <div className="footer-col-left">
             <div className="logo-white-container">
                 <Logo />
-                <span className="nome-loja-footer">Digital Store</span>
+                <span className="nome-loja-footer">React Store</span>
             </div>
             <p className="footer-description">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.
@@ -81,7 +81,7 @@ const Footer = () => {
 
       <hr />
       <div className="footer-copyright">
-        &copy; 2024 Digital Store
+        &copy; 2026 React Store
       </div>
     </footer>
   );

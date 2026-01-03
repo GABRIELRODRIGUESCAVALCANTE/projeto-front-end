@@ -1,41 +1,32 @@
 import React from 'react';
 import './ProductCard.css';
 
-const ProductCard = ({ image, name, category, price, priceDiscount }) => {
-  
-  // Lógica simples: Se tiver desconto, calcula o valor novo. Se não, usa o preço normal.
-  const priceNumber = parseFloat(price);
-  const finalPrice = priceDiscount 
-      ? priceNumber - (priceNumber * (priceDiscount / 100)) 
-      : priceNumber;
-
+const ProductCard = ({ image, name, price, priceDiscount }) => {
   return (
     <div className="product-card">
       
-      {/* Imagem do Produto */}
+      {/* Imagem (292x321) */}
       <div className="card-image-container">
-        {/* Se tiver desconto, mostra a etiqueta amarela */}
-        {priceDiscount && (
-            <span className="discount-badge">{priceDiscount}% OFF</span>
-        )}
         <img src={image} alt={name} className="product-image" />
       </div>
 
-      {/* Informações do Produto */}
+      {/* Informações */}
       <div className="card-info">
-        <span className="product-category">{category}</span>
+        <p className="product-category">Tênis</p> {/* Categoria fixa ou via prop se quiseres */}
         <h3 className="product-name">{name}</h3>
         
         <div className="price-container">
-            {/* Se tiver desconto, mostra o preço antigo riscado */}
-            {priceDiscount && (
-                <span className="old-price">${price}</span>
+            {/* LÓGICA DO PREÇO CONFORME README */}
+            {priceDiscount ? (
+                // Se TEM desconto:
+                <>
+                    <span className="price-old">${price}</span>
+                    <span className="price-discount">${priceDiscount}</span>
+                </>
+            ) : (
+                // Se NÃO TEM desconto:
+                <span className="price-regular">${price}</span>
             )}
-            
-            {/* Preço Final (Calculado) */}
-            <span className="current-price">
-                ${finalPrice.toFixed(2)}
-            </span>
         </div>
       </div>
     </div>

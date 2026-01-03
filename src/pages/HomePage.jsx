@@ -17,28 +17,26 @@ const HomePage = () => {
             titleAlign="left" 
             link={{ text: "Ver todos", href: "/produtos" }}
         >
-            {/* Lista de Produtos (Filhos da Section) */}
-            <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-                
-                <ProductCard 
-                    image="https://github.com/digitalcollegebr/projeto-digital-store/blob/main/public/product-thumb-1.png?raw=true"
-                    name="K-Swiss V8 - Masculino"
-                    category="Tênis"
-                    price="200"
-                    priceDiscount={30}
-                />
+            {/* Exemplo de uso dentro da tua Section */}
+<div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+    
+    {/* Produto COM desconto */}
+    <ProductCard 
+        image="https://github.com/digitalcollegebr/projeto-digital-store/blob/main/public/product-thumb-1.png?raw=true"
+        name="K-Swiss V8 - Masculino"
+        price="200"        // Preço antigo (ficará riscado)
+        priceDiscount="149" // Preço novo (ficará destaque)
+    />
 
-                <ProductCard 
-                    image="https://github.com/digitalcollegebr/projeto-digital-store/blob/main/public/product-thumb-2.png?raw=true"
-                    name="K-Swiss V8 - Masculino"
-                    category="Tênis"
-                    price="200"
-                    priceDiscount={30}
-                />
-                
-                {/* Podes copiar e colar mais ProductCards aqui se quiseres encher a tela */}
+    {/* Produto SEM desconto */}
+    <ProductCard 
+        image="https://github.com/digitalcollegebr/projeto-digital-store/blob/main/public/product-thumb-2.png?raw=true"
+        name="K-Swiss V8 - Masculino"
+        price="200"        // Aparecerá normal (destaque)
+        // priceDiscount não foi passado, então ele entende que não tem promoção
+    />
 
-            </div>
+</div>
         </Section>
 
       </div>

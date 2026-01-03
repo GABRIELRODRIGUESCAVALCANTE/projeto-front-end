@@ -1,73 +1,54 @@
 /* Container do Card */
 .product-card {
-    width: 280px; /* Largura fixa */
+    width: 292px; /* Largura ajustada para bater com a imagem */
     font-family: 'Inter', sans-serif;
     cursor: pointer;
-    transition: transform 0.2s;
-    background: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.product-card:hover {
-    transform: translateY(-5px); /* Efeito de subir ao passar o mouse */
-}
-
-/* --- ÁREA DA IMAGEM --- */
+/* --- ÁREA DA IMAGEM (Requisito: 292x321) --- */
 .card-image-container {
+    width: 292px;
+    height: 321px;
     background-color: #FFFFFF;
-    height: 280px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    overflow: hidden; /* Garante que a imagem não saia da borda */
+    
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative; 
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05); /* Sombra leve */
-    border-radius: 4px;
-    margin-bottom: 15px;
-    overflow: hidden;
 }
 
 .product-image {
-    max-width: 90%;
-    max-height: 90%;
-    object-fit: contain; /* Garante que a imagem não distorça */
+    /* Faz a imagem cobrir o espaço mantendo proporção, ou use 'contain' se preferir ver o produto inteiro */
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    padding: 20px; /* Um respiro para a imagem não colar na borda */
 }
 
-/* Etiqueta Amarela de Desconto */
-.discount-badge {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    background-color: #E7FF86; /* Amarelo Neon */
-    color: #474747;
-    font-weight: bold;
-    font-size: 14px;
-    padding: 5px 15px;
-    border-radius: 20px;
-}
-
-/* --- INFORMAÇÕES DE TEXTO --- */
+/* --- TEXTOS --- */
 .card-info {
     display: flex;
     flex-direction: column;
-    gap: 5px;
 }
 
 .product-category {
     font-size: 12px;
-    font-weight: bold;
-    color: #8F8F8F; /* Cinza claro */
+    font-weight: 700;
+    color: #8F8F8F;
+    margin: 0 0 5px 0;
 }
 
 .product-name {
-    font-size: 18px;
-    color: #474747;
-    font-weight: 400; /* Regular */
-    margin: 0;
-    line-height: 1.5;
-    
-    /* Corta o texto com "..." se for muito grande */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis; 
+    font-size: 24px; /* Ajustado para ficar legível com a imagem grande */
+    font-weight: 400;
+    color: #474747; /* Dark Gray */
+    margin: 0 0 10px 0;
+    line-height: 1.2;
 }
 
 /* --- PREÇOS --- */
@@ -77,14 +58,23 @@
     gap: 10px;
 }
 
-.old-price {
-    font-size: 16px;
-    color: #8F8F8F;
-    text-decoration: line-through; /* Risco no meio do preço antigo */
+/* Caso 1: Preço Normal (sem desconto) */
+.price-regular {
+    font-size: 24px;
+    font-weight: bold;
+    color: #474747; /* Dark Gray */
 }
 
-.current-price {
-    font-size: 20px;
+/* Caso 2: Preço Antigo (quando tem desconto) - Light Gray + Riscado */
+.price-old {
+    font-size: 16px; /* Geralmente menor que o destaque */
+    color: #8F8F8F;  /* Light Gray */
+    text-decoration: line-through;
+}
+
+/* Caso 2: Preço com Desconto - Dark Gray + 24px */
+.price-discount {
+    font-size: 24px;
     font-weight: bold;
-    color: #1F1F1F;
+    color: #474747; /* Dark Gray */
 }
