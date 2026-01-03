@@ -1,0 +1,57 @@
+/* Container geral da seção */
+.section-container {
+    padding: 0 0 60px 0; /* Espaço em baixo de cada seção */
+    width: 100%;
+}
+
+/* O Cabeçalho (Título e Link) */
+.section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+/* --- ALINHAMENTO --- */
+
+/* Padrão (Left): Título na esquerda, Link na direita */
+.section-header.align-left {
+    justify-content: space-between;
+    text-align: left;
+}
+
+/* Center: Título no centro (Geralmente usado sem link) */
+.section-header.align-center {
+    justify-content: center;
+    text-align: center;
+}
+
+/* --- TIPOGRAFIA --- */
+
+/* Título: dark-gray-2 (#474747), 24px, Bold */
+.section-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #474747;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Link: primary (#C92071), 18px */
+.section-link {
+    font-size: 18px;
+    color: #C92071;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    white-space: nowrap; /* Impede o link de quebrar linha */
+    transition: color 0.2s;
+}
+
+.section-link:hover {
+    color: #991555; /* Um tom mais escuro ao passar o mouse */
+}
+
+/* Área do conteúdo (onde entram os cards) */
+.section-content {
+    width: 100%;
+}

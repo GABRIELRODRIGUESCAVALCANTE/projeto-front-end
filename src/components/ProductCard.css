@@ -1,0 +1,90 @@
+/* Container do Card */
+.product-card {
+    width: 280px; /* Largura fixa */
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: transform 0.2s;
+    background: transparent;
+}
+
+.product-card:hover {
+    transform: translateY(-5px); /* Efeito de subir ao passar o mouse */
+}
+
+/* --- ÁREA DA IMAGEM --- */
+.card-image-container {
+    background-color: #FFFFFF;
+    height: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; 
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05); /* Sombra leve */
+    border-radius: 4px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.product-image {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain; /* Garante que a imagem não distorça */
+}
+
+/* Etiqueta Amarela de Desconto */
+.discount-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: #E7FF86; /* Amarelo Neon */
+    color: #474747;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+/* --- INFORMAÇÕES DE TEXTO --- */
+.card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.product-category {
+    font-size: 12px;
+    font-weight: bold;
+    color: #8F8F8F; /* Cinza claro */
+}
+
+.product-name {
+    font-size: 18px;
+    color: #474747;
+    font-weight: 400; /* Regular */
+    margin: 0;
+    line-height: 1.5;
+    
+    /* Corta o texto com "..." se for muito grande */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+/* --- PREÇOS --- */
+.price-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.old-price {
+    font-size: 16px;
+    color: #8F8F8F;
+    text-decoration: line-through; /* Risco no meio do preço antigo */
+}
+
+.current-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #1F1F1F;
+}
