@@ -1,0 +1,7 @@
+.product-listing {
+    display: flex;
+    flex-wrap: wrap;       /* Permite quebrar para a linha de baixo */
+    gap: 20px;             /* Espaço entre os cards */
+    justify-content: flex-start; /* Alinha à esquerda (ou center se preferir) */
+    width: 100%;
+}

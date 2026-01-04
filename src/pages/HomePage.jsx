@@ -3,40 +3,64 @@ import PageLayout from './PageLayout';
 // REMOVI O IMPORT DO GALLERY AQUI PARA NÃO DAR ERRO
 import Section from '../components/Section';
 import ProductCard from '../components/ProductCard';
+import ProductListing from '../components/ProductListing';
 
 const HomePage = () => {
+  
+  // Lista de dados (simulando o que viria de uma API)
+  const products = [
+    {
+      name: "K-Swiss V8 - Masculino",
+      image: "https://github.com/digitalcollegebr/projeto-digital-store/blob/main/public/product-thumb-1.png?raw=true",
+      price: 200,
+      priceDiscount: 149.9
+    },
+    {
+      name: "K-Swiss V8 - Masculino",
+      image: "https://github.com/digitalcollegebr/projeto-digital-store/blob/main/public/product-thumb-2.png?raw=true",
+      price: 200,
+      priceDiscount: 149.9
+    },
+    {
+      name: "K-Swiss V8 - Masculino",
+      image: "https://github.com/digitalcollegebr/projeto-digital-store/blob/main/public/product-thumb-1.png?raw=true",
+      price: 200,
+      // Esse aqui não tem desconto, para testarmos a lógica
+    },
+    {
+      name: "K-Swiss V8 - Masculino",
+      image: "https://github.com/digitalcollegebr/projeto-digital-store/blob/main/public/product-thumb-2.png?raw=true",
+      price: 200,
+      priceDiscount: 149.9
+    },
+    {
+      name: "K-Swiss V8 - Masculino",
+      image: "https://github.com/digitalcollegebr/projeto-digital-store/blob/main/public/product-thumb-2.png?raw=true",
+      price: 200,
+      priceDiscount: 149.9
+    },
+    {
+      name: "K-Swiss V8 - Masculino",
+      image: "https://github.com/digitalcollegebr/projeto-digital-store/blob/main/public/product-thumb-2.png?raw=true",
+      price: 200,
+      priceDiscount: 149.9
+    },
+  ];
+
   return (
     <PageLayout>
       
-      {/* Como não temos o Banner (Gallery), começamos direto pelo conteúdo */}
       <div className="home-content-container" style={{ padding: '40px 100px' }}>
         
-        {/* Componente SECTION (Produtos em alta) */}
+        {/* Seção de Produtos em Alta */}
         <Section 
             title="Produtos em alta" 
             titleAlign="left" 
             link={{ text: "Ver todos", href: "/produtos" }}
         >
-            {/* Exemplo de uso dentro da tua Section */}
-<div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-    
-    {/* Produto COM desconto */}
-    <ProductCard 
-        image="https://github.com/digitalcollegebr/projeto-digital-store/blob/main/public/product-thumb-1.png?raw=true"
-        name="K-Swiss V8 - Masculino"
-        price="200"        // Preço antigo (ficará riscado)
-        priceDiscount="149" // Preço novo (ficará destaque)
-    />
-
-    {/* Produto SEM desconto */}
-    <ProductCard 
-        image="https://github.com/digitalcollegebr/projeto-digital-store/blob/main/public/product-thumb-2.png?raw=true"
-        name="K-Swiss V8 - Masculino"
-        price="200"        // Aparecerá normal (destaque)
-        // priceDiscount não foi passado, então ele entende que não tem promoção
-    />
-
-</div>
+            {/* AGORA USAMOS A LISTAGEM AUTOMÁTICA AQUI */}
+            <ProductListing products={products} />
+            
         </Section>
 
       </div>
