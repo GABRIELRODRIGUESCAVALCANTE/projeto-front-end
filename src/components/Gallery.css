@@ -1,0 +1,102 @@
+.gallery-container {
+    position: relative; /* Para as setas ficarem presas aqui dentro */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espaço entre a imagem grande e as miniaturas */
+}
+
+/* Área da Imagem Principal */
+.gallery-main {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #f5f5f5; /* Cor de fundo caso a imagem demore a carregar */
+}
+
+.gallery-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cobre todo o espaço sem distorcer */
+    display: block;
+}
+
+/* --- SETAS DE NAVEGAÇÃO --- */
+/* --- SETAS DE NAVEGAÇÃO --- */
+.gallery-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); /* Centraliza na vertical */
+    cursor: pointer;
+    z-index: 10; /* Garante que fica por cima da imagem */
+    
+    /* NOVO: Estilo para destacar a seta */
+    background-color: rgba(255, 255, 255, 0.5); /* Fundo branco transparente */
+    border-radius: 50%; /* Faz um círculo à volta da seta */
+    padding: 8px; /* Espaço interno para o círculo não ficar colado à seta */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s, opacity 0.3s;
+}
+
+.gallery-arrow:hover {
+    background-color: rgba(255, 255, 255, 0.8); /* Fica mais branco ao passar o mouse */
+}
+
+.gallery-arrow-left {
+    left: 10px; /* MUDANÇA: Empurra mais para o canto esquerdo (era 20px) */
+}
+
+.gallery-arrow-right {
+    right: 10px; /* MUDANÇA: Empurra mais para o canto direito (era 20px) */
+}
+
+/* O estado .disabled já não será necessário com a nova lógica, mas pode manter */
+.gallery-arrow.disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+    display: none; /* Opcional: se preferir que suma nas pontas */
+}
+
+.gallery-arrow-left {
+    left: 20px;
+}
+
+.gallery-arrow-right {
+    right: 20px;
+}
+
+/* Estado Desabilitado (Opacidade baixa e sem clique) */
+.gallery-arrow.disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+}
+
+/* --- MINIATURAS (THUMBNAILS) --- */
+.gallery-thumbs {
+    display: flex;
+    justify-content: center; /* Centraliza as miniaturas */
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.thumb-item {
+    width: 117px;
+    height: 95px;
+    cursor: pointer;
+    overflow: hidden;
+    border: 2px solid transparent; /* Borda invisível para não pular quando selecionado */
+    transition: border-color 0.2s;
+}
+
+.thumb-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Borda Rosa quando selecionado */
+.thumb-item.active {
+    border-color: #C92071;
+}

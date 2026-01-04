@@ -1,0 +1,137 @@
+/* src/pages/HomePage/HomePage.css */
+
+/* --- GALERIA TOPO --- */
+.hero-gallery {
+    margin-bottom: 40px;
+}
+
+/* --- SEÇÃO 1: COLEÇÕES EM DESTAQUE (3 BANNERS) --- */
+
+/* Grid que segura os 3 cards */
+.collection-grid {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Importante para responsividade */
+}
+
+/* O Cartão Individual */
+.collection-card {
+    background-color: #D8E3F2; /* Azulzinho claro do fundo */
+    border-radius: 8px;
+    height: 250px;
+    flex: 1; /* Divide o espaço igualmente */
+    min-width: 320px; /* Tamanho mínimo para não quebrar */
+    position: relative; /* IMPORTANTE: Para segurar a imagem absoluta */
+    overflow: hidden; /* Garante que a imagem não saia das bordas arredondadas */
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza o conteúdo verticalmente */
+    align-items: flex-start; /* Alinha texto à esquerda */
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.collection-card:hover {
+    transform: translateY(-5px);
+}
+
+/* --- CONTEÚDO DE TEXTO DO CARD --- */
+
+/* A pílula de "30% OFF" */
+.discount-pill {
+    background-color: #E7FF86;
+    color: #474747;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 5px 15px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    z-index: 2; /* Garante que fica EM CIMA da imagem */
+    display: inline-block;
+}
+
+/* Título do Card */
+.collection-card h3 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #1F1F1F;
+    margin: 10px 0 20px 0;
+    z-index: 2;
+    max-width: 180px; /* Força o texto a quebrar antes de bater na imagem */
+    line-height: 1.1;
+    text-align: left;
+}
+
+/* Botão "Comprar" */
+.btn-collection {
+    background-color: #F5F5F5;
+    color: #C92071; /* Rosa Primary */
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 2;
+    transition: background 0.3s;
+}
+
+.btn-collection:hover {
+    background-color: #C92071;
+    color: white;
+}
+
+/* --- A IMAGEM DE FUNDO DO CARD (Direita) --- */
+.collection-img {
+    position: absolute; /* Solta a imagem do fluxo normal */
+    right: 0;
+    bottom: 0;
+    height: 100%; /* Ocupa toda a altura do card */
+    width: auto;
+    object-fit: contain; /* Ajusta sem distorcer */
+    z-index: 1; /* Fica ATRÁS do texto */
+    max-width: 60%; /* Impede que cubra o texto todo */
+}
+
+
+/* --- SEÇÃO 2: ÍCONES REDONDOS (CATEGORIAS) --- */
+.icons-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.icon-circle {
+    width: 104px;
+    height: 104px;
+    background-color: #FFFFFF;
+    border-radius: 50%; /* Faz ficar redondo */
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s;
+}
+
+.icon-item:hover .icon-circle {
+    transform: scale(1.1);
+}
+
+.icon-label {
+    font-weight: bold;
+    color: #474747;
+    font-size: 14px;
+}
