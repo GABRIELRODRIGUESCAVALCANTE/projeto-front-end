@@ -1,0 +1,85 @@
+
+/* src/pages/ProductListingPage/ProductListingPage.css */
+
+.product-listing-page {
+    background-color: #F9F8FE;
+    padding: 40px 100px;
+    display: flex;
+    gap: 20px; /* Espaço horizontal entre sidebar e produtos */
+    min-height: 80vh;
+    align-items: flex-start; /* Garante que ambos começam do topo */
+}
+
+/* --- BARRA LATERAL (ESQUERDA) --- */
+.sidebar-container {
+    width: 308px;
+    min-width: 308px;
+    display: flex;
+    flex-direction: column;
+    /* Este é o espaço vertical entre a caixa Ordenar e a caixa Filtrar */
+    gap: 20px; 
+}
+
+/* A caixa branca do "Ordenar por" */
+.sort-container {
+    height: 60px; /* Altura fixa */
+    background-color:transparent;
+    -radius: 0px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    justify-content: space-between;
+  
+}
+
+.sort-label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #474747;
+}
+
+.sort-select {
+    border: none;
+    font-size: 14px;
+    color: #474747;
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+}
+
+/* A caixa branca dos Filtros */
+.filter-sidebar-box {
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.filter-main-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #474747;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #E2E2E2;
+}
+
+/* --- ÁREA DE PRODUTOS (DIREITA) --- */
+.product-listing-content {
+    flex: 1; 
+    
+    padding-top: 0px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .product-listing-page {
+        flex-direction: column;
+        padding: 20px;
+        /* No celular, removemos o padding extra pois fica tudo um embaixo do outro */
+    }
+    .product-listing-content {
+        padding-top: 0;
+    }
+}

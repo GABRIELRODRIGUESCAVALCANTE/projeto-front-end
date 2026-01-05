@@ -1,0 +1,42 @@
+.filter-group-container {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #CCCCCC; /* Linha separadora light-gray-2 (aproximado) */
+}
+
+/* Remove a linha do último item para não ficar estranho */
+.filter-group-container:last-child {
+    border-bottom: none;
+}
+
+.filter-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #474747; /* dark-gray-2 */
+    margin-bottom: 15px;
+    display: block;
+}
+
+.filter-options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.filter-option-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #474747;
+}
+
+/* O input (Checkbox ou Radio) - Requisito: 22x22px */
+.filter-input {
+    width: 22px;
+    height: 22px;
+    accent-color: #C92071; /* Cor Primary */
+    cursor: pointer;
+    margin: 0;
+}

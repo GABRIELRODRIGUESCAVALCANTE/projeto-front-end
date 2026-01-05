@@ -1,0 +1,55 @@
+.featured-collections-container {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.collections-grid {
+    display: flex;
+    justify-content: center; /* Centraliza as bolinhas na tela */
+    gap: 40px; /* Espaço entre cada categoria */
+    flex-wrap: wrap;
+}
+
+.collection-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    gap: 15px;
+}
+
+/* O Círculo Branco */
+.icon-circle {
+    width: 104px;
+    height: 104px;
+    background-color: #FFFFFF;
+    border-radius: 50%; /* Faz ficar redondo */
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+/* Tamanho do emoji/ícone dentro */
+.icon-emoji {
+    font-size: 40px;
+}
+
+/* Texto em baixo */
+.collection-name {
+    font-size: 14px;
+    font-weight: bold;
+    color: #474747;
+    transition: color 0.2s;
+}
+
+/* --- EFEITO HOVER (Ao passar o mouse) --- */
+.collection-item:hover .icon-circle {
+    transform: translateY(-5px); /* Sobe um pouquinho */
+    background-color: #F5F5F5; /* Fica levemente cinza */
+}
+
+.collection-item:hover .collection-name {
+    color: #C92071; /* Texto fica Rosa */
+}
