@@ -1,0 +1,39 @@
+.options-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.option-item {
+    cursor: pointer;
+    border: 1px solid #CCCCCC; /* light-gray-2 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box; 
+    transition: all 0.2s;
+}
+
+/* Quadrado (Tamanhos - 46x46px) */
+.option-square {
+    width: 46px;
+    height: 46px;
+    font-size: 24px;
+    color: #474747; /* dark-gray-2 */
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Círculo (Cores - 31x31px) */
+.option-circle {
+    width: 31px;
+    height: 31px;
+    border-radius: 50%;
+}
+
+/* Item Selecionado (Borda Primary 2px) */
+.option-item.selected {
+    border: 2px solid #C92071; /* Primary */
+    color: #C92071;
+}
