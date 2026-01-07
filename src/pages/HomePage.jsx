@@ -22,14 +22,14 @@ const HomePage = () => {
 
   // 5.3 - Lista de 8 Produtos
   const productList = [
-    { name: "K-Swiss V8 - Masculino", image: "https://github.com/digitalcollegebr/projeto-digital-store/blob/main/public/product-thumb-1.png?raw=true", price: 200, priceDiscount: 149.9 },
-    { name: "K-Swiss V8 - Masculino", image: "https://github.com/digitalcollegebr/projeto-digital-store/blob/main/public/product-thumb-2.png?raw=true", price: 200, priceDiscount: 149.9 },
-    { name: "K-Swiss V8 - Masculino", image: "https://github.com/digitalcollegebr/projeto-digital-store/blob/main/public/product-thumb-3.png?raw=true", price: 200, priceDiscount: 149.9 },
-    { name: "K-Swiss V8 - Masculino", image: "https://github.com/digitalcollegebr/projeto-digital-store/blob/main/public/product-thumb-4.png?raw=true", price: 200, priceDiscount: 149.9 },
-    { name: "K-Swiss V8 - Masculino", image: "https://github.com/digitalcollegebr/projeto-digital-store/blob/main/public/product-thumb-5.png?raw=true", price: 200, priceDiscount: 149.9 },
-    { name: "K-Swiss V8 - Masculino", image: "https://github.com/digitalcollegebr/projeto-digital-store/blob/main/public/product-thumb-1.png?raw=true", price: 200, priceDiscount: 149.9 },
-    { name: "K-Swiss V8 - Masculino", image: "https://github.com/digitalcollegebr/projeto-digital-store/blob/main/public/product-thumb-2.png?raw=true", price: 200, priceDiscount: 149.9 },
-    { name: "K-Swiss V8 - Masculino", image: "https://github.com/digitalcollegebr/projeto-digital-store/blob/main/public/product-thumb-3.png?raw=true", price: 200, priceDiscount: 149.9 },
+    { name: "K-Swiss V8 - Masculino", image: "https://github.com/digitalcollegebr/projeto-digital-store/blob/154c105f9b1a127fb30ca797a224a9a301439ed5/public/produc-image-1.jpeg?raw=true", price: 200, priceDiscount: 149.9 },
+    { name: "K-Swiss V8 - Masculino", image: "https://github.com/digitalcollegebr/projeto-digital-store/blob/main/public/product-thumb-2.jpeg?raw=true", price: 200, priceDiscount: 149.9 },
+    { name: "K-Swiss V8 - Masculino", image: "https://github.com/digitalcollegebr/projeto-digital-store/blob/main/public/product-thumb-4.jpeg?raw=true", price: 200, priceDiscount: 149.9 },
+    { name: "K-Swiss V8 - Masculino", image: "https://github.com/digitalcollegebr/projeto-digital-store/blob/154c105f9b1a127fb30ca797a224a9a301439ed5/public/product-thumb-5.jpeg?raw=true", price: 200, priceDiscount: 149.9 },
+    { name: "K-Swiss V8 - Masculino", image: "https://tse1.mm.bing.net/th/id/OIP.dQBJB2nJWcgMwkPv0qqAvgHaFj?rs=1&pid=ImgDetMain&o=7&rm=3", price: 200, priceDiscount: 149.9 },
+    { name: "K-Swiss V8 - Masculino", image: "https://static.netshoes.com.br/produtos/tenis-nike-revolution-5-masculino/26/HZM-1731-026/HZM-1731-026_zoom1.jpg", price: 200, priceDiscount: 149.9 },
+    { name: "K-Swiss V8 - Masculino", image: "https://th.bing.com/th/id/OIP.Gcd8ISF12IwpXzv1Iu55cwHaE8?w=300&h=200&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3", price: 200, priceDiscount: 149.9 },
+    { name: "K-Swiss V8 - Masculino", image: "https://th.bing.com/th/id/OIP.1uOmFlK_vDRhVN08t3hk6QHaHa?w=221&h=220&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3", price: 200, priceDiscount: 149.9 },
   ];
 
   return (
@@ -128,7 +128,12 @@ const HomePage = () => {
                 </div>
                 <div className="icon-item">
                     <div className="icon-circle">
-                         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#C92071" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M16 6l-4-4-4 4"/></svg>
+                       <img 
+                        width="50" 
+                        height="50" 
+                        src="https://img.icons8.com/ios/50/C92071/trainers.png" 
+                        alt="trainers"
+                        />
                     </div>
                     <span className="icon-label">Tênis</span>
                 </div>
