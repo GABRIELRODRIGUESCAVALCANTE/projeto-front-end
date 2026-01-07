@@ -1,16 +1,17 @@
 import React from 'react';
 import './HomePage.css';
-import PageLayout from './PageLayout'; // Ajuste o caminho conforme sua pasta
-import Section from '../components/Section'; // Ajuste o caminho
-import ProductListing from '../components/ProductListing'; // Ajuste o caminho
-import Gallery from '../components/Gallery'; // Ajuste o caminho
+import PageLayout from './PageLayout'; 
+import Section from '../components/Section'; 
+import ProductListing from '../components/ProductListing'; 
+import Gallery from '../components/Gallery'; 
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
   
   // 5.1 - Slides da Galeria Principal
   const heroImages = [
-    { src: "https://raw.githubusercontent.com/digitalcollegebr/projeto-digital-store/main/public/home-slide-1.jpeg" },
     { src: "https://raw.githubusercontent.com/digitalcollegebr/projeto-digital-store/main/public/home-slide-2.jpeg" },
+    { src: "https://raw.githubusercontent.com/digitalcollegebr/projeto-digital-store/main/public/home-slide-1.jpeg" },
     { src: "https://raw.githubusercontent.com/digitalcollegebr/projeto-digital-store/main/public/home-slide-3.jpeg" },
     { src: "https://raw.githubusercontent.com/digitalcollegebr/projeto-digital-store/main/public/home-slide-4.jpeg" },
     { src: "https://raw.githubusercontent.com/digitalcollegebr/projeto-digital-store/main/public/home-slide-5.jpeg" },
@@ -34,14 +35,27 @@ const HomePage = () => {
   return (
     <PageLayout>
       
-      {/* 5.1 - Slide de Imagens */}
+      {/* 5.1 - Slide de Imagens + Texto Overlay */}
       <div className="hero-gallery">
+          
           <Gallery 
             images={heroImages}
             width="100%"   
             height="681px" 
             radius="0px"   
           />
+
+          {/* NOVO: Conteúdo de Texto flutuante sobre a imagem */}
+          <div className="hero-content-overlay">
+              <span className="hero-subtitle">Melhores ofertas personalizadas</span>
+              <h1 className="hero-title">Queima de estoque imperdivel 🔥</h1>
+              <p className="hero-description">
+                  Chegou a hora de renovar seu estilo com preços imperdíveis! Nossa queima de estoque de sapatos está recheada de modelos incríveis, conforto garantido e aquele design que você ama. Mas atenção: são últimas unidades e os descontos estão de tirar o fôlego.
+
+              </p>
+              <Link to="/produtos" className="btn-hero">Ver Ofertas</Link>
+          </div>
+
       </div>
 
       <div className="home-content-container" style={{ padding: '0 100px 40px 100px' }}>
@@ -49,7 +63,7 @@ const HomePage = () => {
         {/* 5.2 - Coleções em Destaque (3 Banners) */}
         <Section 
             title="Coleções em destaque" 
-            titleAlign="left" // No Figma parece Left, mas o readme pede Center. Podes ajustar aqui.
+            titleAlign="left" 
         >
            <div className="collection-grid">
               
@@ -80,40 +94,40 @@ const HomePage = () => {
            </div>
         </Section>
 
-        {/* 5.2 (Parte 2) - Coleções em Destaque (Ícones) - Conforme Figma */}
+        {/* 5.2 (Parte 2) - Coleções em Destaque (Ícones) */}
         <Section title="Coleções em destaque" titleAlign="center">
             <div className="icons-container">
                 <div className="icon-item">
                     <div className="icon-circle">
-                        {/* Ícone SVG Camiseta */}
                         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#C92071" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.47a1 1 0 00.99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 002-2V10h2.15a1 1 0 00.99-.84l.58-3.47a2 2 0 00-1.34-2.23z"/></svg>
                     </div>
                     <span className="icon-label">Camisetas</span>
                 </div>
                 <div className="icon-item">
                     <div className="icon-circle">
-                        {/* Ícone SVG Calça */}
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#C92071" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-8a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v8"/><path d="M17 4v3a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V4"/><path d="M7 4h10"/></svg>
+                       <img width="50" height="50" src="https://img.icons8.com/ios/50/C92071/trousers.png" alt="trousers"/>
                     </div>
                     <span className="icon-label">Calças</span>
                 </div>
                  <div className="icon-item">
                     <div className="icon-circle">
-                         {/* Ícone SVG Boné */}
-                         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#C92071" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12h20"/><path d="M7 12a5 5 0 0 1 10 0"/><path d="M12 7V4"/></svg>
+                       <img 
+                        width="64" 
+                        height="64" 
+                        src="https://img.icons8.com/pastel-glyph/64/C92071/cap--v1.png" 
+                        alt="cap--v1"
+                        />
                     </div>
                     <span className="icon-label">Bonés</span>
                 </div>
                 <div className="icon-item">
                     <div className="icon-circle">
-                         {/* Ícone SVG Headphones */}
                          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#C92071" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
                     </div>
                     <span className="icon-label">Headphones</span>
                 </div>
                 <div className="icon-item">
                     <div className="icon-circle">
-                         {/* Ícone SVG Tênis */}
                          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#C92071" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M16 6l-4-4-4 4"/></svg>
                     </div>
                     <span className="icon-label">Tênis</span>
