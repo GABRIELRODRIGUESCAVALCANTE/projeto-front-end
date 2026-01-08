@@ -1,15 +1,20 @@
-import React, { useState } from 'react'; // 1. Importamos o useState
+import React, { useState } from 'react'; 
 import Logo from './Logo';
 import './Header.css';
 import { useNavigate, Link, NavLink } from 'react-router-dom';
 
 const Header = () => {
   const [searchTerm, setSearchTerm] = useState('');
+  
+  // 1. NOVO: Estado para controlar o menu mobile
+  const [menuOpen, setMenuOpen] = useState(false);
+
   const navigate = useNavigate();
 
   const handleSearch = () => {
     if (searchTerm.trim()) {
       navigate(`/products?filter=${searchTerm}`);
+      setMenuOpen(false); // Fecha o menu se pesquisar algo
     }
   }
 
@@ -24,6 +29,21 @@ const Header = () => {
       
       {/* === LINHA DE CIMA === */}
       <div className="header-top">
+        
+        {/* 2. NOVO: Botão Hambúrguer (Só vai aparecer no Mobile via CSS) */}
+        <button 
+            className="menu-hamburger" 
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Abrir menu"
+        >
+            {/* Ícone das 3 listras (SVG simples) */}
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#333" strokeWidth="2">
+                <path d="M3 12H21" />
+                <path d="M3 6H21" />
+                <path d="M3 18H21" />
+            </svg>
+        </button>
+
         <div className="logo-container">
             <Logo />
             <div className="nome-loja">React Store</div>
@@ -52,15 +72,16 @@ const Header = () => {
         </div>
       </div>
 
-      {/* === LINHA DE BAIXO (MENU INTELIGENTE) === */}
-      <div className="header-nav">
+      {/* === LINHA DE BAIXO (MENU) === */}
+      {/* 3. NOVO: Adicionamos a classe 'open' se o menuOpen for true */}
+      <div className={`header-nav ${menuOpen ? 'open' : ''}`}>
         <nav>
             <ul>
                 <li>
-                    {/* O NavLink verifica se está ativo e muda a classe sozinho */}
                     <NavLink 
                         to="/" 
                         className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+                        onClick={() => setMenuOpen(false)} // Fecha ao clicar
                     >
                         Home
                     </NavLink>
@@ -69,6 +90,7 @@ const Header = () => {
                     <NavLink 
                         to="/produtos" 
                         className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+                        onClick={() => setMenuOpen(false)}
                     >
                         Produtos
                     </NavLink>
@@ -77,6 +99,7 @@ const Header = () => {
                     <NavLink 
                         to="/categorias" 
                         className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+                        onClick={() => setMenuOpen(false)}
                     >
                         Categorias
                     </NavLink>
@@ -85,12 +108,24 @@ const Header = () => {
                     <NavLink 
                         to="/meus-pedidos" 
                         className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+                        onClick={() => setMenuOpen(false)}
                     >
                         Meus Pedidos
                     </NavLink>
                 </li>
             </ul>
         </nav>
+        <div className="mobile-actions">
+            <hr className="divider" /> {/* Uma linha para separar */}
+            
+            <Link to="/cadastro" className="mobile-link" onClick={() => setMenuOpen(false)}>
+                Cadastre-se
+            </Link>
+            
+            <Link to="/login" className="mobile-btn-entrar" onClick={() => setMenuOpen(false)}>
+                Entrar
+            </Link>
+        </div>
       </div>
 
     </header>

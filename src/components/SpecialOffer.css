@@ -1,0 +1,105 @@
+/* Container geral */
+.special-offer-container {
+    display: flex;
+    align-items: center; /* Alinha verticalmente ao centro */
+    justify-content: center;
+    gap: 100px; /* Espaço entre a imagem e o texto */
+    padding: 60px 100px;
+    background-color: #FFFFFF; /* Fundo branco da seção */
+    margin-top: 50px; /* Separação das seções anteriores */
+}
+
+/* --- Lado Esquerdo (Imagem) --- */
+.offer-image-wrapper {
+    position: relative; /* Importante para podermos posicionar o círculo atrás */
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 400px; /* Damos altura para caber o círculo */
+}
+
+/* O círculo decorativo atrás do tênis */
+.circle-bg {
+    position: absolute; 
+    width: 400px;       /* Tamanho do círculo */
+    height: 450px;
+    border-radius: 50%; 
+    background: linear-gradient(180deg, #E7F6F6 0%, rgba(231, 246, 246, 0) 100%);
+    
+    top: -30px; 
+    z-index: 1; 
+}
+
+.offer-img {
+    position: relative;
+    z-index: 2; /* Fica na frente do círculo */
+    width: 100%;
+    max-width: 550px;
+    height: auto;
+    filter: drop-shadow(0px 10px 20px rgba(0,0,0,0.2));
+}
+
+/* --- Lado Direito (Texto) --- */
+.offer-content {
+    width: 50%; /* Ocupa a outra metade */
+    text-align: left;
+}
+
+.offer-subtitle {
+    color: #C92071; /* A cor rosa primária */
+    font-weight: bold;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.offer-title {
+    font-size: 48px;
+    color: #474747; /* Cinza escuro */
+    margin: 0 0 20px 0;
+    line-height: 1.1;
+}
+
+.offer-description {
+    color: #474747;
+    font-size: 16px;
+    line-height: 28px;
+    margin-bottom: 30px;
+}
+
+/* --- Botão --- */
+.offer-button {
+    background-color: #C92071; /* Rosa */
+    color: white;
+    border: none;
+    border-radius: 5px; /* Bordas levemente arredondadas */
+    padding: 15px 40px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.offer-button:hover {
+    background-color: #991956; /* Escurece ao passar o mouse */
+}
+
+/* Responsividade (Para telemóvel) */
+@media (max-width: 768px) {
+    .special-offer-container {
+        flex-direction: column-reverse; /* Imagem vai para baixo no mobile */
+        padding: 40px 20px;
+        gap: 40px;
+    }
+    
+    .offer-image-wrapper, .offer-content {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .circle-bg {
+        width: 300px;
+        height: 300px;
+    }
+}

@@ -1,21 +1,39 @@
-/* Container do Card */
+body{
+    background-color: #f5f5f5;
+}
 .product-card {
-    
+    text-decoration: none;
     font-family: 'Inter', sans-serif;
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
+    color: inherit;
+}
+.discount-badge {
+    position: absolute; /* Permite mover livremente sobre a imagem */
+    top: 15px;  /* Distância do topo */
+    left: 15px; /* Distância da esquerda */
+    
+    background-color: #E7FF86; /* Amarelo "Neon" parecido com o Figma */
+    color: #474747; /* Cor do texto (cinza escuro) */
+    
+    padding: 5px 15px; /* Espaço interno para criar o formato de pílula */
+    border-radius: 25px; /* Arredonda as bordas */
+    
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 0.5px; /* Espaçamento leve entre letras */
 }
 
-/* --- ÁREA DA IMAGEM (Requisito: 292x321) --- */
+
 .card-image-container {
-    
+    position: relative;
     height: 321px;
     background-color: #FFFFFF;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
     border-radius: 4px;
-    overflow: hidden; /* Garante que a imagem não saia da borda */
+    overflow: hidden; 
     
     display: flex;
     justify-content: center;
@@ -23,11 +41,10 @@
 }
 
 .product-image {
-    /* Faz a imagem cobrir o espaço mantendo proporção, ou use 'contain' se preferir ver o produto inteiro */
     width: 100%;
     height: 100%;
     object-fit: contain; 
-    padding: 20px; /* Um respiro para a imagem não colar na borda */
+    padding: 20px;
 }
 
 /* --- TEXTOS --- */
@@ -44,7 +61,7 @@
 }
 
 .product-name {
-    font-size: 24px; /* Ajustado para ficar legível com a imagem grande */
+    font-size: 24px; 
     font-weight: 400;
     color: #474747; /* Dark Gray */
     margin: 0 0 10px 0;

@@ -6,7 +6,7 @@ const FeaturedCollections = () => {
   
   // Lista de Categorias
   const collections = [
-    { name: "Camisetas", icon: "👕" }, // Podes trocar este emoji por uma tag <img src={...} />
+    { name: "Camisetas", icon: "👕" }, 
     { name: "Calças", icon: "👖" },
     { name: "Bonés", icon: "🧢" },
     { name: "Headphones", icon: "🎧" },

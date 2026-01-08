@@ -156,6 +156,7 @@
     cursor: pointer;
 }
 
+
 .icon-circle {
     width: 104px;
     height: 104px;
@@ -177,6 +178,52 @@
     font-weight: bold;
     color: #474747;
     font-size: 14px;
+}
+/* --- ESTILO DOS PRODUTOS (Adicione ao final do HomePage.css) --- */
+
+/* 1. O Card do Produto em si */
+.product-card {
+    width: 280px; /* Largura fixa para manter o padrão */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px; /* Espaço entre as linhas */
+}
+
+/* 2. O Container da Imagem (A Mágica do Alinhamento) */
+.image-container {
+    width: 100%;
+    height: 250px; /* Altura fixa igual ao Figma */
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05); /* Sombra suave opcional */
+}
+
+/* 3. A Imagem dentro do container */
+.image-container img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain; /* Garante que o sapato apareça inteiro sem cortar */
+}
+
+/* 4. Remover sublinhado do nome/link */
+.product-card a {
+    text-decoration: none;
+    color: #474747;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 10px;
+    display: block; /* Garante que fique na linha certa */
+}
+
+.product-card a:hover {
+    color: #C92071; /* Cor rosa ao passar o mouse */
 }
 
 /* Responsividade Básica para o Texto do Hero */

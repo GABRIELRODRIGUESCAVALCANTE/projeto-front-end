@@ -4,10 +4,16 @@ import './ProductCard.css';
 
 const ProductCard = ({ image, name, price, priceDiscount }) => {
   return (
-   
     <Link to="/produto/1" className="product-card">
       
+      {/* Adicionamos o 'position: relative' no CSS desta div abaixo */}
       <div className="card-image-container">
+        
+        {/* LÓGICA: Se houver desconto, mostra o selo */}
+        {priceDiscount && (
+           <span className="discount-badge">30% OFF</span>
+        )}
+        
         <img src={image} alt={name} className="product-image" />
       </div>
 

@@ -1,116 +1,150 @@
+/* =========================================
+   ESTILOS GERAIS (DESKTOP / PADRÃO)
+   ========================================= */
 
-/* Container principal que segura tudo */
+/* Container principal */
 .header-container {
     background-color: #FFFFFF;
-    padding: 20px 60px; /* Espaçamento interno */
-    font-family: 'Inter', sans-serif; /* Fonte padrão sugerida */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05); /* Sombra leve em baixo */
-    
+    padding: 20px 60px;
+    font-family: 'Inter', sans-serif;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+    position: relative; /* Necessário para o menu mobile se posicionar */
+    z-index: 50;
 }
 
 /* --- PARTE DE CIMA (Logo + Busca + Botões) --- */
 .header-top {
-    display: flex;              /* Ativa o modo flexbox */
-    justify-content: space-between; /* Empurra um filho para cada ponta e um no meio */
-    align-items: center;       /* Garante que fiquem alinhados na altura (vertical) */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* NOVO: O botão hambúrguer começa INVISÍVEL no computador */
+.menu-hamburger {
+    display: none; /* O segredo está aqui! */
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 15px;
 }
 
 /* Barra de Pesquisa */
 .search-bar {
     display: flex;
     align-items: center;
-    background-color: #f5f5f5; /* Cinza bem clarinho */
+    background-color: #f5f5f5;
     border-radius: 8px;
     padding: 0 15px;
-    width: 40%; /* A barra ocupa 40% do espaço */
-    transition: box-shadow 0.3s ease,border-color 0.3s ease;
-    border: 1px solid transparent; /* Borda padrão transparente */
+    width: 40%;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    border: 1px solid transparent;
     margin-left: 30px;
 }
+
 .search-bar:focus-within {
-    border-color: aqua; /* Borda azul ao focar */
+    border-color: aqua;
 }
+
 .search-bar input {
     border: none;
     background: transparent;
     padding: 15px 10px;
     width: 100%;
-    outline: none; /* Tira a borda azul ao clicar */
+    outline: none;
     color: #666;
-
-}
-.logo-container {
-    display: flex;       /* Coloca Logo e Texto lado a lado */
-    align-items: center; /* Alinha o texto na vertical com a imagem */
-    gap: 10px;           /* Dá um espaço de 10px entre a imagem e o texto */
-}
-.nome-loja {
-    font-size: 36px;       /* <-- MUDEI AQUI: De 24px para 36px */
-    font-weight: bold;
-    color: #C92071;
-    line-height: 1;        /* Ajuda a alinhar melhor quando a letra é grande */
 }
 
-/* Ícone de lupa (simulado com texto por enquanto) */
 .search-icon {
     color: #999;
     font-size: 18px;
     cursor: pointer;
 }
 
+/* Logo */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nome-loja {
+    font-size: 36px;
+    font-weight: bold;
+    color: #C92071;
+    line-height: 1;
+}
+
 /* Área de Cadastro e Login */
 .user-actions {
-   display: flex;
+    display: flex;
     align-items: center;
     gap: 30px;
 }
 
 .link-cadastro {
-   color: #474747; 
+    color: #474747;
     font-size: 16px;
-    text-decoration: underline; /* O sublinhado exigido */
-    font-weight: 400; /* Peso normal */
+    text-decoration: underline;
+    font-weight: 400;
     cursor: pointer;
 }
 
 .btn-entrar {
-  display: flex;             /* Para alinhar o texto no centro */
+    display: flex;
     justify-content: center;
     align-items: center;
-    
-    width: 114px;              /* Largura exata */
-    height: 40px;              /* Altura exata */
-    border-radius: 4px;        /* Arredondamento exato */
-    
-    background-color: #C92071; /* Cor Primary */
-    color: #FFFFFF;            /* Cor White */
-    font-weight: bold;         /* Negrito */
-    font-size: 14px;           /* Tamanho da fonte */
-    
-    text-decoration: none;     /* Remove o sublinhado padrão de links */
+    width: 114px;
+    height: 40px;
+    border-radius: 4px;
+    background-color: #C92071;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 14px;
+    text-decoration: none;
     border: none;
     transition: background-color 0.3s;
 }
 
 .btn-entrar:hover {
-    background-color: #991555; /* Rosa mais escuro ao passar o mouse */
+    background-color: #991555;
 }
 
+/* Carrinho */
 .cart-icon {
-    color: #C92071; /* Carrinho rosa */
+    color: #C92071;
     font-size: 24px;
     cursor: pointer;
     position: relative;
 }
 
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -12px;
+    background-color: #C92071;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-/* Note que aqui pegamos a ul que está dentro da classe header-nav */
+/* --- MENU DE NAVEGAÇÃO (Links) --- */
+.header-nav nav {
+    width: 100%;
+}
+
 .header-nav ul {
-    display: flex;              /* Coloca os itens lado a lado */
-    justify-content: flex-start; /* Alinha tudo à esquerda (ou 'center' se preferires) */
-    gap: 30px;                  /* Cria um espaço de 30px entre cada link */
-    list-style: none;           /* Remove as bolinhas da lista */
-    padding: 0;                 /* Remove o recuo padrão */
+    display: flex;
+    justify-content: flex-start;
+    gap: 30px;
+    list-style: none;
+    padding: 0;
+    margin-top: 20px; /* Um pequeno espaço entre o topo e o menu */
 }
 
 .nav-link {
@@ -118,9 +152,9 @@
     color: #474747;
     font-size: 16px;
     padding-bottom: 5px;
+    display: inline-block; /* Garante que o padding funcione bem */
 }
 
-/* Classe especial para o link ativo (Home) */
 .nav-link.active {
     color: #C92071;
     font-weight: bold;
@@ -130,30 +164,128 @@
 .nav-link:hover {
     color: #C92071;
 }
-/* src/components/Header/Header.css */
 
-.cart-icon {
-    position: relative; /* IMPORTANTE: Define o limite para a bolinha não fugir */
-    cursor: pointer;
-    /* Se tiver margin-left aqui, mantenha */
+@media (max-width: 768px) {
+
+    /* 1. Ajusta o container principal para não ficar com bordas gigantes */
+    .header-container {
+        padding: 15px 20px;
+    }
+
+    /* 2. Permite que os itens do topo quebrem de linha */
+    .header-top {
+        flex-wrap: wrap; 
+        gap: 10px;
+    }
+
+    /* 3. AQUI FAZEMOS A LISTRA APARECER */
+    .menu-hamburger {
+        display: block; /* Torna visível */
+    }
+
+    /* 4. Ajustes na barra de pesquisa para mobile */
+    .search-bar {
+        order: 3; /* Força a barra para a linha de baixo */
+        width: 100%; /* Ocupa a largura toda */
+        margin-left: 0;
+        margin-top: 15px;
+    }
+
+    /* 5. Esconde links desnecessários no mobile para poupar espaço */
+    .link-cadastro, .btn-entrar {
+        display: none; /* Opcional: esconde login/cadastro no header mobile */
+    }
+
+    /* --- O COMPORTAMENTO DO MENU --- */
+    
+    /* Por padrão, o menu fica ESCONDIDO no mobile */
+    .header-nav {
+        display: none; 
+        position: absolute;
+        top: 100%; /* Cola logo abaixo do cabeçalho */
+        left: 0;
+        width: 100%;
+        background-color: white;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        padding: 20px;
+        z-index: 100;
+    }
+
+    /* Quando o React adicionar a classe 'open', ele APARECE */
+    .header-nav.open {
+        display: block;
+        animation: slideDown 0.3s ease; /* Efeito suave */
+    }
+
+    /* No mobile, os links ficam um em baixo do outro */
+    .header-nav ul {
+        flex-direction: column; /* Vertical */
+        gap: 20px;
+        margin: 0;
+    }
+
+    .nav-link {
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+        border-bottom: 1px solid #f0f0f0; /* Linha separadora leve */
+    }
+
+    .nav-link.active {
+        border-bottom: 2px solid #C92071; /* Mantém o destaque */
+    }
 }
 
-.cart-count {
-    position: absolute;
-    top: -8px;  /* Sobe um pouco */
-    right: -12px; /* Vai para a direita */
+/* Pequena animação para o menu descer suave (Opcional) */
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.mobile-actions {
+    display: none;
+}
+
+/* 2. Regras para quando estiver no Celular */
+@media (max-width: 768px) {
     
-    background-color: #C92071; /* Rosa da marca (ou vermelho #EE4266) */
-    color: white;
-    
-    font-size: 12px;
-    font-weight: bold;
-    
-    width: 20px;
-    height: 20px;
-    border-radius: 50%; /* Faz virar uma bolinha perfeita */
-    
-    display: flex;             /* Centraliza o número */
-    justify-content: center;
-    align-items: center;
+    /* Faz a área aparecer */
+    .mobile-actions {
+        display: flex;
+        flex-direction: column; /* Um em baixo do outro */
+        gap: 15px;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    /* A linha cinza para separar os links dos botões */
+    .divider {
+        border: 0;
+        border-top: 1px solid #eee;
+        margin-bottom: 10px;
+    }
+
+    /* Estilo do link "Cadastre-se" no menu */
+    .mobile-link {
+        text-decoration: underline;
+        color: #474747;
+        font-weight: 500;
+        font-size: 16px;
+    }
+
+    /* Estilo do botão "Entrar" no menu (Rosa) */
+    .mobile-btn-entrar {
+        background-color: #C92071;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 12px;
+        border-radius: 4px;
+        width: 100%; /* Ocupa a largura toda do menu */
+        display: block;
+        transition: background-color 0.2s;
+    }
+
+    .mobile-btn-entrar:hover {
+        background-color: #991555;
+    }
 }
