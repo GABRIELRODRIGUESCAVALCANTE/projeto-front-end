@@ -7,7 +7,7 @@ const ProductListing = ({ products }) => {
     <div className="product-listing">
       {products.map((product, index) => (
         <ProductCard
-          key={index} // O React precisa de uma chave única para listas
+          key={index}
           image={product.image}
           name={product.name}
           price={product.price}

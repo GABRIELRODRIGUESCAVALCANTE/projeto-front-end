@@ -1,53 +1,62 @@
-body{
-    background-color: #f5f5f5;
-}
+/* src/components/ProductCard.css */
+
 .product-card {
-    text-decoration: none;
-    font-family: 'Inter', sans-serif;
-    cursor: pointer;
+    /* OBRIGATÓRIO: Faz o cartão obedecer à grelha */
+    width: 100% !important;
+    min-width: 0 !important;
+    
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
     color: inherit;
-}
-.discount-badge {
-    position: absolute; /* Permite mover livremente sobre a imagem */
-    top: 15px;  /* Distância do topo */
-    left: 15px; /* Distância da esquerda */
-    
-    background-color: #E7FF86; /* Amarelo "Neon" parecido com o Figma */
-    color: #474747; /* Cor do texto (cinza escuro) */
-    
-    padding: 5px 15px; /* Espaço interno para criar o formato de pílula */
-    border-radius: 25px; /* Arredonda as bordas */
-    
-    font-weight: bold;
-    font-size: 14px;
-    letter-spacing: 0.5px; /* Espaçamento leve entre letras */
+    cursor: pointer;
+    position: relative;
+    box-sizing: border-box;
 }
 
+.product-card:hover {
+    transform: translateY(-5px);
+    transition: transform 0.2s ease;
+}
 
+/* Container da Imagem */
 .card-image-container {
     position: relative;
-    height: 321px;
+    width: 100%;
+    height: 280px; /* Altura fixa no Desktop */
     background-color: #FFFFFF;
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.05);
     border-radius: 4px;
-    overflow: hidden; 
-    
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .product-image {
-    width: 100%;
-    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
     object-fit: contain; 
-    padding: 20px;
+    padding: 15px; /* Espaço interno para o sapato não tocar na borda */
 }
 
-/* --- TEXTOS --- */
+/* Badge de desconto */
+.discount-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #E7FF86;
+    color: #474747;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    z-index: 2;
+}
+
+/* Info do Produto */
 .card-info {
     display: flex;
     flex-direction: column;
@@ -57,41 +66,35 @@ body{
     font-size: 12px;
     font-weight: 700;
     color: #8F8F8F;
-    margin: 0 0 5px 0;
+    margin-bottom: 4px;
 }
 
 .product-name {
-    font-size: 24px; 
-    font-weight: 400;
-    color: #474747; /* Dark Gray */
-    margin: 0 0 10px 0;
+    font-size: 18px;
+    color: #474747;
     line-height: 1.2;
+    margin-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-/* --- PREÇOS --- */
 .price-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
 }
+.price-regular { font-size: 20px; font-weight: bold; color: #474747; }
+.price-old { font-size: 14px; color: #8F8F8F; text-decoration: line-through; }
+.price-discount { font-size: 20px; font-weight: bold; color: #474747; }
 
-/* Caso 1: Preço Normal (sem desconto) */
-.price-regular {
-    font-size: 24px;
-    font-weight: bold;
-    color: #474747; /* Dark Gray */
-}
 
-/* Caso 2: Preço Antigo (quando tem desconto) - Light Gray + Riscado */
-.price-old {
-    font-size: 16px; /* Geralmente menor que o destaque */
-    color: #8F8F8F;  /* Light Gray */
-    text-decoration: line-through;
-}
-
-/* Caso 2: Preço com Desconto - Dark Gray + 24px */
-.price-discount {
-    font-size: 24px;
-    font-weight: bold;
-    color: #474747; /* Dark Gray */
+/* --- RESPONSIVIDADE CELULAR --- */
+@media (max-width: 768px) {
+    .card-image-container {
+        /* Altura menor para ficar proporcional */
+        height: 160px !important; 
+    }
+    
+    .product-name { font-size: 14px; }
+    .price-regular, .price-discount { font-size: 16px; }
+    .discount-badge { font-size: 10px; padding: 2px 8px; }
 }

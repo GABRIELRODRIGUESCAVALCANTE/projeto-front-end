@@ -1,6 +1,6 @@
-
 /* src/pages/ProductListingPage/ProductListingPage.css */
 
+/* --- LAYOUT GERAL DA PÁGINA --- */
 .product-listing-page {
     background-color: #F9F8FE;
     padding: 40px 100px;
@@ -8,6 +8,7 @@
     gap: 20px; /* Espaço horizontal entre sidebar e produtos */
     min-height: 80vh;
     align-items: flex-start; /* Garante que ambos começam do topo */
+    box-sizing: border-box;
 }
 
 /* --- BARRA LATERAL (ESQUERDA) --- */
@@ -16,20 +17,18 @@
     min-width: 308px;
     display: flex;
     flex-direction: column;
-    /* Este é o espaço vertical entre a caixa Ordenar e a caixa Filtrar */
     gap: 20px; 
 }
 
-/* A caixa branca do "Ordenar por" */
+/* A caixa do "Ordenar por" */
 .sort-container {
-    height: 60px; /* Altura fixa */
-    background-color:transparent;
-    -radius: 0px;
+    height: 60px;
     display: flex;
     align-items: center;
-    padding: 0 20px;
     justify-content: space-between;
-  
+    padding: 0 20px;
+    border: 1px solid #E2E2E2; /* Borda para visualizar melhor */
+    border-radius: 4px;
 }
 
 .sort-label {
@@ -48,7 +47,7 @@
     font-family: 'Inter', sans-serif;
 }
 
-/* A caixa branca dos Filtros */
+/* A caixa dos Filtros */
 .filter-sidebar-box {
     background-color: #FFFFFF;
     padding: 20px;
@@ -67,19 +66,51 @@
 
 /* --- ÁREA DE PRODUTOS (DIREITA) --- */
 .product-listing-content {
-    flex: 1; 
-    
+    flex: 1; /* Ocupa todo o espaço restante */
+    width: 100%; /* Força a largura */
     padding-top: 0px;
 }
 
-/* Responsividade */
+/* --- A GRELHA DE PRODUTOS (ESSENCIAL) --- */
+/* Certifique-se que no seu JSX a div dos produtos tem className="product-grid-container" */
+.product-grid-container {
+    display: grid;
+    /* DESKTOP: 4 Colunas. O minmax(0, 1fr) é crucial para não quebrar */
+    grid-template-columns: repeat(4, minmax(0, 1fr)); 
+    gap: 16px; /* Espaço entre os cartões */
+    width: 100%;
+}
+
+/* =========================================
+   RESPONSIVIDADE (CELULAR / TABLET)
+   ========================================= */
+
+/* Tablet (ex: iPad) - Baixa para 3 colunas se ficar apertado */
+@media (max-width: 1024px) {
+    .product-grid-container {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+/* Celular (ex: iPhone/Android) */
 @media (max-width: 768px) {
     .product-listing-page {
-        flex-direction: column;
-        padding: 20px;
-        /* No celular, removemos o padding extra pois fica tudo um embaixo do outro */
+        flex-direction: column; /* Empilha: Filtros em cima (ou sumidos), produtos embaixo */
+        padding: 20px; /* Menos margem lateral */
     }
+
+    .sidebar-container {
+        display: none; /* Esconde a sidebar no celular */
+    }
+
     .product-listing-content {
         padding-top: 0;
+        width: 100%;
+    }
+
+    .product-grid-container {
+        /* CELULAR: Força 2 Colunas */
+        grid-template-columns: repeat(2, minmax(0, 1fr)); 
+        gap: 10px; /* Gap menor */
     }
 }

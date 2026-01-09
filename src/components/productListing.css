@@ -1,7 +1,38 @@
+/* src/components/ProductListing.css */
+
 .product-listing {
-    display: flex;
-    flex-wrap: wrap;       /* Permite quebrar para a linha de baixo */
-    gap: 20px;             /* Espaço entre os cards */
-    justify-content: flex-start; /* Alinha à esquerda (ou center se preferir) */
+    /* O SEGREDO: Grid em vez de Flex */
+    display: grid;
+    
+    /* DESKTOP: 4 Colunas */
+    /* minmax(0, 1fr) impede que imagens grandes quebrem o layout */
+    grid-template-columns: repeat(4, minmax(0, 1fr)); 
+    
+    /* ESPAÇAMENTO ENTRE CARTÕES */
+    gap: 32px; /* Bastante espaço no computador */
+    
     width: 100%;
+    box-sizing: border-box;
+    justify-content: center;
+}
+
+/* --- RESPONSIVIDADE --- */
+
+/* Tablet (Notebook pequeno): 3 Colunas */
+@media (max-width: 1024px) {
+    .product-listing {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+    }
+}
+
+/* Celular (Telemóvel): 2 Colunas */
+@media (max-width: 768px) {
+    .product-listing {
+        /* Garante 2 colunas lado a lado */
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        
+        /* AUMENTADO: Garante que não ficam colados */
+        gap: 20px; 
+    }
 }
