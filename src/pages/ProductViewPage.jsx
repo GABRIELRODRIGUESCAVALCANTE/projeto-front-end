@@ -20,10 +20,10 @@ const ProductViewPage = () => {
 
   // Produtos Recomendados (4 itens)
   const relatedProducts = [
-    { name: "K-Swiss V8 - Masculino", image: "https://github.com/digitalcollegebr/projeto-digital-store/blob/main/public/product-thumb-1.png?raw=true", price: 200, priceDiscount: 149.9 },
-    { name: "K-Swiss V8 - Masculino", image: "https://github.com/digitalcollegebr/projeto-digital-store/blob/main/public/product-thumb-2.png?raw=true", price: 200, priceDiscount: 149.9 },
-    { name: "K-Swiss V8 - Masculino", image: "https://github.com/digitalcollegebr/projeto-digital-store/blob/main/public/product-thumb-3.png?raw=true", price: 200, priceDiscount: 149.9 },
-    { name: "K-Swiss V8 - Masculino", image: "https://github.com/digitalcollegebr/projeto-digital-store/blob/main/public/product-thumb-4.png?raw=true", price: 200, priceDiscount: 149.9 },
+    { name: "k-Swiss V16 - Feminino", image: "https://media.istockphoto.com/id/1436061606/pt/foto/flying-colorful-womens-sneaker-isolated-on-white-background-fashionable-stylish-sports-shoe.jpg?s=1024x1024&w=is&k=20&c=xks5cEbExDbovLMwTQcpbWIG1CotKY9a5VD3PkydC_E=", price: 200, priceDiscount: 149.9 },
+    { name: "K-9 V8 - Masculino", image: "https://media.istockphoto.com/id/1337191336/pt/foto/black-fashion-sport-shoe-on-white-background.jpg?s=1024x1024&w=is&k=20&c=c3hNgnXIvdSPXHkYDsky_B_SeF5X3ieMBJkk9QO3py4=", price: 200 },
+    { name: "Siàge-blue - Masculino", image: "https://media.istockphoto.com/id/1337365531/pt/foto/blue-color-fashion-sport-shoe-isolated-on-white-background.jpg?s=1024x1024&w=is&k=20&c=9rjOfJacai35wR-Do0OPoKwYGRK9BQ4NAR_adAvMOO0=", price: 240 },
+    { name: "K-Swiss V8 - Masculino", image: "https://media.istockphoto.com/id/819332120/pt/foto/blue-sport-shoes-on-white-background.jpg?s=1024x1024&w=is&k=20&c=6jtARrUBiw9lUJ_4M7_NNGsC-Z6EM8a16QcFdEWWr78=", price: 200, priceDiscount: 149.9 },
   ];
 
   return (

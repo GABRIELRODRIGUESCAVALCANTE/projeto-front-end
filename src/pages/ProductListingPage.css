@@ -1,116 +1,131 @@
-/* src/pages/ProductListingPage/ProductListingPage.css */
+/* ProductListingPage.css */
 
-/* --- LAYOUT GERAL DA PÁGINA --- */
+/* --- LAYOUT GERAL --- */
 .product-listing-page {
     background-color: #F9F8FE;
     padding: 40px 100px;
     display: flex;
-    gap: 20px; /* Espaço horizontal entre sidebar e produtos */
+    gap: 20px;
     min-height: 80vh;
-    align-items: flex-start; /* Garante que ambos começam do topo */
-    box-sizing: border-box;
+    align-items: flex-start;
+    position: relative; /* Necessário para contexto */
 }
 
-/* --- BARRA LATERAL (ESQUERDA) --- */
-.sidebar-container {
+/* Esconde o botão e o cabeçalho mobile por padrão no Desktop */
+.mobile-filter-header,
+.mobile-filter-close,
+.overlay {
+    display: none;
+}
+
+/* Sidebar Padrão (Desktop) */
+.filter-sidebar-container {
     width: 308px;
     min-width: 308px;
     display: flex;
     flex-direction: column;
-    gap: 20px; 
-}
-
-/* A caixa do "Ordenar por" */
-.sort-container {
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-    border: 1px solid #E2E2E2; /* Borda para visualizar melhor */
-    border-radius: 4px;
-}
-
-.sort-label {
-    font-size: 16px;
-    font-weight: bold;
-    color: #474747;
-}
-
-.sort-select {
-    border: none;
-    font-size: 14px;
-    color: #474747;
-    background: transparent;
-    cursor: pointer;
-    outline: none;
-    font-family: 'Inter', sans-serif;
-}
-
-/* A caixa dos Filtros */
-.filter-sidebar-box {
-    background-color: #FFFFFF;
+    gap: 20px;
+    background-color: #fff;
     padding: 20px;
-    border-radius: 4px;
+}
+
+.product-listing-content {
+    flex: 1;
     width: 100%;
 }
 
-.filter-main-title {
-    font-size: 16px;
-    font-weight: bold;
-    color: #474747;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #E2E2E2;
-}
-
-/* --- ÁREA DE PRODUTOS (DIREITA) --- */
-.product-listing-content {
-    flex: 1; /* Ocupa todo o espaço restante */
-    width: 100%; /* Força a largura */
-    padding-top: 0px;
-}
-
-/* --- A GRELHA DE PRODUTOS (ESSENCIAL) --- */
-/* Certifique-se que no seu JSX a div dos produtos tem className="product-grid-container" */
 .product-grid-container {
     display: grid;
-    /* DESKTOP: 4 Colunas. O minmax(0, 1fr) é crucial para não quebrar */
-    grid-template-columns: repeat(4, minmax(0, 1fr)); 
-    gap: 16px; /* Espaço entre os cartões */
-    width: 100%;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
 }
 
 /* =========================================
-   RESPONSIVIDADE (CELULAR / TABLET)
+   RESPONSIVIDADE (MOBILE)
    ========================================= */
 
-/* Tablet (ex: iPad) - Baixa para 3 colunas se ficar apertado */
-@media (max-width: 1024px) {
-    .product-grid-container {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-}
-
-/* Celular (ex: iPhone/Android) */
 @media (max-width: 768px) {
     .product-listing-page {
-        flex-direction: column; /* Empilha: Filtros em cima (ou sumidos), produtos embaixo */
-        padding: 20px; /* Menos margem lateral */
+        flex-direction: column;
+        padding: 20px;
     }
 
-    .sidebar-container {
-        display: none; /* Esconde a sidebar no celular */
-    }
-
-    .product-listing-content {
-        padding-top: 0;
+    /* 1. Botão de abrir filtro (Visível só no mobile) */
+    .mobile-filter-header {
+        display: flex;
         width: 100%;
+        margin-bottom: 20px;
+        justify-content: flex-end; /* Botão fica à direita ou esquerda, como preferir */
     }
 
+    .filter-toggle-btn {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: white;
+        border: 1px solid #C92071;
+        padding: 10px 20px;
+        border-radius: 4px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    /* 2. Transformando a Sidebar em um Menu Gaveta (Drawer) */
+    .filter-sidebar-container {
+        position: fixed; /* Fixa na tela */
+        top: 0;
+        left: -100%; /* Começa escondida fora da tela à esquerda */
+        width: 80%; /* Ocupa 80% da tela */
+        height: 100vh; /* Altura total */
+        z-index: 1000; /* Fica por cima de tudo */
+        transition: left 0.3s ease; /* Animação suave */
+        overflow-y: auto; /* Permite rolar se tiver muitos filtros */
+        box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+    }
+
+    /* Quando a classe 'open' é adicionada pelo React */
+    .filter-sidebar-container.open {
+        left: 0; /* Entra na tela */
+    }
+
+    /* 3. Cabeçalho dentro do menu (Botão fechar) */
+    .mobile-filter-close {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #C92071;
+        padding-bottom: 10px;
+    }
+
+    .mobile-filter-title {
+        font-size: 18px;
+        font-weight: bold;
+        color: #474747;
+    }
+
+    .close-btn {
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: #C92071; /* Cor de destaque (rosa) */
+    }
+
+    /* 4. Overlay (Fundo escuro atrás do menu) */
+    .overlay {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0,0,0,0.5);
+        z-index: 999; /* Fica logo atrás do menu */
+    }
+
+    /* Ajuste da grid para celular */
     .product-grid-container {
-        /* CELULAR: Força 2 Colunas */
-        grid-template-columns: repeat(2, minmax(0, 1fr)); 
-        gap: 10px; /* Gap menor */
+        grid-template-columns: repeat(2, 1fr);
     }
 }

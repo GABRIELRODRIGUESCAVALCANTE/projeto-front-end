@@ -1,5 +1,5 @@
 /* =========================================
-   ESTILOS GERAIS (DESKTOP / PADRÃO)
+   1. ESTILOS GERAIS (DESKTOP / PADRÃO)
    ========================================= */
 
 /* Container principal */
@@ -8,7 +8,7 @@
     padding: 20px 60px;
     font-family: 'Inter', sans-serif;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
-    position: relative; /* Necessário para o menu mobile se posicionar */
+    position: relative; /* Essencial para o menu absoluto funcionar */
     z-index: 50;
 }
 
@@ -17,15 +17,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap; /* Permite que itens desçam se faltar espaço */
 }
 
-/* NOVO: O botão hambúrguer começa INVISÍVEL no computador */
+/* O botão hambúrguer começa INVISÍVEL no computador */
 .menu-hamburger {
-    display: none; /* O segredo está aqui! */
+    display: none; 
     background: none;
     border: none;
     cursor: pointer;
-    margin-right: 15px;
+    padding: 0;
 }
 
 /* Barra de Pesquisa */
@@ -42,7 +43,7 @@
 }
 
 .search-bar:focus-within {
-    border-color: aqua;
+    border-color: #C92071; /* Cor da marca no foco */
 }
 
 .search-bar input {
@@ -133,7 +134,7 @@
     align-items: center;
 }
 
-/* --- MENU DE NAVEGAÇÃO (Links) --- */
+/* --- MENU DE NAVEGAÇÃO (Links Desktop) --- */
 .header-nav nav {
     width: 100%;
 }
@@ -144,7 +145,7 @@
     gap: 30px;
     list-style: none;
     padding: 0;
-    margin-top: 20px; /* Um pequeno espaço entre o topo e o menu */
+    margin-top: 20px;
 }
 
 .nav-link {
@@ -152,7 +153,7 @@
     color: #474747;
     font-size: 16px;
     padding-bottom: 5px;
-    display: inline-block; /* Garante que o padding funcione bem */
+    display: inline-block;
 }
 
 .nav-link.active {
@@ -165,42 +166,62 @@
     color: #C92071;
 }
 
+.mobile-actions {
+    display: none; /* Escondido no Desktop */
+}
+
+/* =========================================
+   2. RESPONSIVIDADE (TELEMÓVEL / TABLET)
+   ========================================= */
 @media (max-width: 768px) {
 
-    /* 1. Ajusta o container principal para não ficar com bordas gigantes */
     .header-container {
         padding: 15px 20px;
     }
 
-    /* 2. Permite que os itens do topo quebrem de linha */
+    /* --- LAYOUT DO TOPO --- */
     .header-top {
-        flex-wrap: wrap; 
         gap: 10px;
     }
 
-    /* 3. AQUI FAZEMOS A LISTRA APARECER */
+    /* 1. Botão Menu Visível */
     .menu-hamburger {
-        display: block; /* Torna visível */
+        display: block;
+        order: 1; /* Fica na esquerda */
     }
 
-    /* 4. Ajustes na barra de pesquisa para mobile */
+    /* 2. Logo no Centro (ou ao lado do menu) */
+    .logo-container {
+        order: 2;
+        flex-grow: 1; /* Ocupa o espaço livre */
+    }
+    
+    .nome-loja {
+        font-size: 24px; /* Diminui a fonte do logo */
+    }
+
+    /* 3. Carrinho na Direita */
+    .user-actions {
+        order: 3;
+        gap: 15px;
+    }
+    
+    /* Esconde os botões de texto, deixa só o carrinho */
+    .link-cadastro, .btn-entrar {
+        display: none; 
+    }
+
+    /* 4. Busca vai para baixo */
     .search-bar {
-        order: 3; /* Força a barra para a linha de baixo */
-        width: 100%; /* Ocupa a largura toda */
+        order: 4; /* Força para a última posição visual */
+        width: 100%; /* Ocupa a linha inteira */
         margin-left: 0;
         margin-top: 15px;
     }
 
-    /* 5. Esconde links desnecessários no mobile para poupar espaço */
-    .link-cadastro, .btn-entrar {
-        display: none; /* Opcional: esconde login/cadastro no header mobile */
-    }
-
-    /* --- O COMPORTAMENTO DO MENU --- */
-    
-    /* Por padrão, o menu fica ESCONDIDO no mobile */
+    /* --- MENU DE NAVEGAÇÃO (ABERTO/FECHADO) --- */
     .header-nav {
-        display: none; 
+        display: none; /* Padrão: Escondido */
         position: absolute;
         top: 100%; /* Cola logo abaixo do cabeçalho */
         left: 0;
@@ -209,62 +230,43 @@
         box-shadow: 0 10px 15px rgba(0,0,0,0.1);
         padding: 20px;
         z-index: 100;
+        box-sizing: border-box; /* Garante que o padding não estoure a tela */
     }
 
-    /* Quando o React adicionar a classe 'open', ele APARECE */
+    /* Classe ativada pelo React quando menuOpen é true */
     .header-nav.open {
         display: block;
-        animation: slideDown 0.3s ease; /* Efeito suave */
+        animation: slideDown 0.3s ease;
     }
 
-    /* No mobile, os links ficam um em baixo do outro */
     .header-nav ul {
-        flex-direction: column; /* Vertical */
-        gap: 20px;
+        flex-direction: column; /* Lista vertical */
+        gap: 0; /* Remove gap do flex, usa padding nos itens */
         margin: 0;
     }
 
     .nav-link {
         display: block;
         width: 100%;
-        padding: 10px 0;
-        border-bottom: 1px solid #f0f0f0; /* Linha separadora leve */
+        padding: 15px 0;
+        border-bottom: 1px solid #f0f0f0;
     }
 
-    .nav-link.active {
-        border-bottom: 2px solid #C92071; /* Mantém o destaque */
-    }
-}
-
-/* Pequena animação para o menu descer suave (Opcional) */
-@keyframes slideDown {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-.mobile-actions {
-    display: none;
-}
-
-/* 2. Regras para quando estiver no Celular */
-@media (max-width: 768px) {
-    
-    /* Faz a área aparecer */
+    /* --- AÇÕES DENTRO DO MENU MOBILE (Login/Cadastro) --- */
     .mobile-actions {
         display: flex;
-        flex-direction: column; /* Um em baixo do outro */
+        flex-direction: column;
         gap: 15px;
         margin-top: 20px;
         text-align: center;
     }
 
-    /* A linha cinza para separar os links dos botões */
     .divider {
         border: 0;
         border-top: 1px solid #eee;
         margin-bottom: 10px;
     }
 
-    /* Estilo do link "Cadastre-se" no menu */
     .mobile-link {
         text-decoration: underline;
         color: #474747;
@@ -272,7 +274,6 @@
         font-size: 16px;
     }
 
-    /* Estilo do botão "Entrar" no menu (Rosa) */
     .mobile-btn-entrar {
         background-color: #C92071;
         color: white;
@@ -280,12 +281,14 @@
         font-weight: bold;
         padding: 12px;
         border-radius: 4px;
-        width: 100%; /* Ocupa a largura toda do menu */
+        width: 100%;
         display: block;
-        transition: background-color 0.2s;
+        box-sizing: border-box;
     }
+}
 
-    .mobile-btn-entrar:hover {
-        background-color: #991555;
-    }
+/* Animação suave */
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }

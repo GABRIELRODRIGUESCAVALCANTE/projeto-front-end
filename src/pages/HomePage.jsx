@@ -5,13 +5,10 @@ import Section from '../components/Section';
 import ProductListing from '../components/ProductListing'; 
 import Gallery from '../components/Gallery'; 
 import { Link } from 'react-router-dom';
-
-// 1. NOVO: Importar o componente que criámos
 import SpecialOffer from '../components/SpecialOffer';
 
 const HomePage = () => {
   
-  // 5.1 - Slides da Galeria Principal
   const heroImages = [
     { src: "https://raw.githubusercontent.com/digitalcollegebr/projeto-digital-store/main/public/home-slide-2.jpeg" },
     { src: "https://raw.githubusercontent.com/digitalcollegebr/projeto-digital-store/main/public/home-slide-1.jpeg" },
@@ -23,7 +20,6 @@ const HomePage = () => {
     { src: "https://raw.githubusercontent.com/digitalcollegebr/projeto-digital-store/main/public/home-slide-8.jpeg" },
   ];
 
-  // 5.3 - Lista de 8 Produtos
   const productList = [
     { name: "K-Swiss V8 - Masculino", image: "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/e4c6334a-f7cc-41b0-8060-d72c31a2335a/NIKE+COURT+VISION+LO.png", price: 699.90 },
     { name: "K-Swiss V8 - Masculino", image: "https://raw.githubusercontent.com/digitalcollegebr/projeto-digital-store/main/public/product-thumb-2.jpeg", price: 200, priceDiscount: 149.9 },
@@ -44,6 +40,9 @@ const HomePage = () => {
           <Gallery 
             images={heroImages}
             width="100%"   
+            /* Alterado para 50vh no mobile e 680px no desktop via CSS se necessário, 
+               mas aqui deixamos fixo ou removemos para controlar via CSS. 
+               Vou manter fixo mas ensinar o CSS a ignorar no mobile. */
             height="681px" 
             radius="0px"   
           />
@@ -59,26 +58,23 @@ const HomePage = () => {
 
       </div>
 
-      <div className="home-content-container" style={{ padding: '0 100px 40px 100px' }}>
+      {/* REMOVIDO O STYLE INLINE DAQUI */}
+      <div className="home-content-container">
         
-        {/* 5.2 - Coleções em Destaque (3 Banners) */}
         <Section title="Coleções em destaque" titleAlign="left">
            <div className="collection-grid">
-              {/* CARD 1 */}
               <div className="collection-card">
                   <span className="discount-pill">30% OFF</span>
                   <h3>Novo drop Supreme</h3>
                   <button className="btn-collection">Comprar</button>
                   <img src="https://raw.githubusercontent.com/digitalcollegebr/projeto-digital-store/main/public/collection-1.png" className="collection-img" alt="Supreme" />
               </div>
-              {/* CARD 2 */}
               <div className="collection-card">
                   <span className="discount-pill">30% OFF</span>
                   <h3>Coleção Adidas</h3>
                   <button className="btn-collection">Comprar</button>
                   <img src="https://raw.githubusercontent.com/digitalcollegebr/projeto-digital-store/main/public/collection-2.png" className="collection-img" alt="Adidas" />
               </div>
-              {/* CARD 3 */}
               <div className="collection-card">
                   <span className="discount-pill">30% OFF</span>
                   <h3>Novo Beats Bass</h3>
@@ -88,7 +84,6 @@ const HomePage = () => {
            </div>
         </Section>
 
-        {/* 5.2 (Parte 2) - Coleções em Destaque (Ícones) */}
         <Section title="Coleções em destaque" titleAlign="center">
             <div className="icons-container">
                 <div className="icon-item">
@@ -97,7 +92,6 @@ const HomePage = () => {
                     </div>
                     <span className="icon-label">Camisetas</span>
                 </div>
-                {/* ... (Outros ícones mantidos iguais) ... */}
                 <div className="icon-item">
                      <div className="icon-circle">
                         <img width="50" height="50" src="https://img.icons8.com/ios/50/C92071/trousers.png" alt="trousers"/>
@@ -125,7 +119,6 @@ const HomePage = () => {
             </div>
         </Section>
 
-        {/* 5.3 - Produtos em Alta (8 Produtos) */}
         <Section 
             title="Produtos em alta" 
             titleAlign="left" 
@@ -134,7 +127,6 @@ const HomePage = () => {
             <ProductListing products={productList} />
         </Section>
 
-        {/* 2. NOVO: AQUI entra a nova seção de Oferta Especial */}
         <SpecialOffer />
 
       </div>
