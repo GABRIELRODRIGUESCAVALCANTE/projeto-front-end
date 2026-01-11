@@ -4,7 +4,7 @@
     border-bottom: 1px solid #CCCCCC; /* Linha separadora light-gray-2 (aproximado) */
 }
 
-/* Remove a linha do último item para não ficar estranho */
+
 .filter-group-container:last-child {
     border-bottom: none;
 }
@@ -32,7 +32,7 @@
     color: #474747;
 }
 
-/* O input (Checkbox ou Radio) - Requisito: 22x22px */
+
 .filter-input {
     width: 22px;
     height: 22px;

@@ -1,14 +1,14 @@
 .product-view-container {
     padding: 40px 100px;
-    background-color: #F9F8FE; /* Fundo cinza claro padrão */
+    background-color: #F9F8FE; 
     display: flex;
     flex-direction: column;
-    gap: 80px; /* Distância entre detalhes do produto e a lista de recomendados */
+    gap: 80px; 
 }
 
 .product-details-wrapper {
     display: flex;
-    gap: 40px; /* Espaço entre Galeria e BuyBox */
+    gap: 40px; 
     align-items: flex-start;
 }
 

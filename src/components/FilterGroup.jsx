@@ -11,7 +11,7 @@ const FilterGroup = ({ title, inputType, options }) => {
           <label key={index} className="filter-option-label">
             <input 
               type={inputType} 
-              name={title} // O 'name' igual agrupa os Radios para só selecionar um
+              name={title} 
               value={option.value || option.text} 
               className="filter-input"
             />

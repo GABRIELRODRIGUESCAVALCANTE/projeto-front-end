@@ -1,32 +1,31 @@
-/* src/components/Footer/Footer.css */
+
 
 .footer-container {
     background-color: #1F1F1F;
     color: #FFFFFF;
-    /* REDUZI O PADDING: Antes era 60px 100px, agora diminuí para ficar mais compacto */
     padding: 40px 60px 20px 60px; 
     font-family: 'Inter', sans-serif;
 }
 
 .footer-content {
     display: flex;
-    justify-content: space-between; /* Separa esquerda e direita */
+    justify-content: space-between; 
     align-items: flex-start;
     margin-bottom: 30px;
 }
 
-/* --- LADO ESQUERDO (Logo e Redes) --- */
+
 .footer-col-left {
-    width: 30%; /* Define um tamanho fixo para não empurrar os outros */
-    min-width: 250px; /* Garante que não fica espremido demais */
+    width: 30%; 
+    min-width: 250px;
 }
 
-/* --- LADO DIREITO (As colunas de texto) --- */
+
 .footer-col-right {
     display: flex;
-    justify-content: space-between; /* Espalha as 3 colunas */
+    justify-content: space-between; 
     width: 60%; /* Ocupa o resto do espaço da tela */
-    gap: 20px; /* Espaço entre as colunas (diminuí de 60px para caber tudo) */
+    gap: 20px; 
 }
 
 /* Estilo de cada coluna pequena (Informação, Categorias...) */

@@ -1,4 +1,4 @@
-/* src/components/ProductCard.css */
+
 
 .product-card {
     /* OBRIGATÓRIO: Faz o cartão obedecer à grelha */
@@ -87,10 +87,9 @@
 .price-discount { font-size: 20px; font-weight: bold; color: #474747; }
 
 
-/* --- RESPONSIVIDADE CELULAR --- */
+/* RESPONSIVIDADE CELULAR */
 @media (max-width: 768px) {
     .card-image-container {
-        /* Altura menor para ficar proporcional */
         height: 160px !important; 
     }
     
