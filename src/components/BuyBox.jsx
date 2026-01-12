@@ -1,5 +1,5 @@
 import React from 'react';
-import './BuyBox.css';
+import './Buybox.css';
 
 const BuyBox = ({ name, reference, stars, rating, price, priceDiscount, description, children }) => {
   return (
