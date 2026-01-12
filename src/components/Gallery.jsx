@@ -18,16 +18,13 @@ const Gallery = ({ className, width, height, radius, showThumbs, images }) => {
   };
 
   const handleNext = () => {
-    // Se estiver na última foto (length - 1), volta para a primeira (0).
-    // Caso contrário, apenas soma 1.
+   
     setCurrentIndex(currentIndex === images.length - 1 ? 0 : currentIndex + 1);
   };
 
-  // NOTA: Removemos as variáveis 'canGoLeft' e 'canGoRight' pois agora
-  // as setas funcionam sempre.
 
   if (!images || images.length === 0) {
-    return null; // Proteção caso não haja imagens
+    return null; 
   }
 
   return (
@@ -41,7 +38,7 @@ const Gallery = ({ className, width, height, radius, showThumbs, images }) => {
         className="gallery-main" 
         style={{ height: height, borderRadius: radius }}
       >
-        {/* Seta Esquerda (sempre ativa agora) */}
+       
         <div className="gallery-arrow gallery-arrow-left" onClick={handlePrev}>
              <img src={arrowLeft} alt="Anterior" />
         </div>

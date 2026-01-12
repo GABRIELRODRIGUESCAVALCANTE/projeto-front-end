@@ -34,15 +34,13 @@ const HomePage = () => {
   return (
     <PageLayout>
       
-      {/* 5.1 - Slide de Imagens + Texto Overlay */}
+      {/*  Slide de Imagens  */}
       <div className="hero-gallery">
           
           <Gallery 
             images={heroImages}
             width="100%"   
-            /* Alterado para 50vh no mobile e 680px no desktop via CSS se necessário, 
-               mas aqui deixamos fixo ou removemos para controlar via CSS. 
-               Vou manter fixo mas ensinar o CSS a ignorar no mobile. */
+          
             height="681px" 
             radius="0px"   
           />

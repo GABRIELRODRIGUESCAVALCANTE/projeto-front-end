@@ -1,22 +1,22 @@
-/* Container geral */
+
 .special-offer-container {
     display: flex;
-    align-items: center; /* Alinha verticalmente ao centro */
+    align-items: center; 
     justify-content: center;
     gap: 100px; /* Espaço entre a imagem e o texto */
     padding: 60px 100px;
-    background-color: #FFFFFF; /* Fundo branco da seção */
-    margin-top: 50px; /* Separação das seções anteriores */
+    background-color: #FFFFFF;
+    margin-top: 50px; 
 }
 
 /* --- Lado Esquerdo (Imagem) --- */
 .offer-image-wrapper {
-    position: relative; /* Importante para podermos posicionar o círculo atrás */
+    position: relative; 
     width: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 400px; /* Damos altura para caber o círculo */
+    height: 400px; 
 }
 
 /* O círculo decorativo atrás do tênis */

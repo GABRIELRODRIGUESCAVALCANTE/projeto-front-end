@@ -6,11 +6,8 @@ import Section from '../components/Section';
 import FilterGroup from '../components/FilterGroup';
 
 const ProductListingPage = () => {
-  
-  // Estado para controlar a visibilidade do filtro no mobile
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
-  // Lista de produtos simulada
   const products = [
     { name: "K-9 V8 - Masculino", image: "https://media.istockphoto.com/id/1337191336/pt/foto/black-fashion-sport-shoe-on-white-background.jpg?s=1024x1024&w=is&k=20&c=c3hNgnXIvdSPXHkYDsky_B_SeF5X3ieMBJkk9QO3py4=", price: 200 },
     { name: "Tênis-Mega - Masculino", image: "https://media.istockphoto.com/id/1170287367/pt/foto/sneakers-sports-shoes-side-view-on-a-white-background.jpg?s=1024x1024&w=is&k=20&c=65v_RdA4OSFYGzKUkmjTKnVuztdtMO43AidugxuMQzE=", price: 289.99, priceDiscount: 199.99 },
@@ -41,7 +38,6 @@ const ProductListingPage = () => {
         </div>
 
         {/* --- SIDEBAR (FILTROS) --- */}
-        {/* A classe 'open' é adicionada quando isFilterOpen é true */}
         <aside className={`filter-sidebar-container ${isFilterOpen ? 'open' : ''}`}>
             
             {/* MOBILE: Cabeçalho interno do menu com botão fechar */}
@@ -50,7 +46,6 @@ const ProductListingPage = () => {
               <button className="close-btn" onClick={() => setIsFilterOpen(false)}>✖</button>
             </div>
             
-            {/* Bloco de Ordenação */}
             <div className="sort-container">
                 <label className="sort-label">Ordenar por</label>
                 <select className="sort-select">
