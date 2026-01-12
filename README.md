@@ -1,16 +1,23 @@
-# React + Vite
+1- 👟 React Store (React Store)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bem-vindo ao repositório do projeto **Digital Store**, um e-commerce de calçados desportivos desenvolvido com React. Este projeto foca na criação de uma interface moderna, responsiva e com uma excelente experiência de utilizador.
 
-Currently, two official plugins are available:
+2- 🖥️ Sobre o Projeto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Este projeto foi desenvolvido como parte de um desafio de Front-end. O objetivo principal foi criar componentes reutilizáveis, gerir o layout com CSS Grid/Flexbox e garantir a responsividade entre dispositivos Desktop e Mobile.
 
-## React Compiler
+3- Funcionalidades:
+- **Listagem de Produtos:** Grid responsivo que exibe 4 produtos por linha no Desktop e 2 no Mobile.
+- **Card de Produto:** Componente modular com imagem, preço, nome e badge de desconto.
+- **Responsividade:** Layout adaptável para telemóveis, tablets e computadores.
+- **Barra Lateral de Filtros:** (Em desenvolvimento) Interface para filtrar produtos.
+- **Header e Footer:** Navegação intuitiva.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+4- 🚀 Tecnologias Utilizadas
 
-## Expanding the ESLint configuration
+- **React** (Biblioteca principal)
+- **Vite** (Build tool rápida)
+- **CSS3** (Grid, Flexbox, Media Queries)
+- **React Router** (Navegação)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## link do site: https://projeto-front-end-xlgs.vercel.app/
