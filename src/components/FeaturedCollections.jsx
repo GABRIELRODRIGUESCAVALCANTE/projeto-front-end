@@ -17,7 +17,7 @@ const FeaturedCollections = () => {
     <div className="featured-collections-container">
         <Section 
             title="Coleções em destaque" 
-            titleAlign="center" // Aqui usamos o título centralizado!
+            titleAlign="center" 
         >
             <div className="collections-grid">
                 {collections.map((item, index) => (
