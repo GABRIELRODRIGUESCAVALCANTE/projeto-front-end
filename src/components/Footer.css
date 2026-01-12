@@ -50,7 +50,7 @@
 .footer-link {
     text-decoration: none;
     color: #F5F5F5;
-    font-size: 14px; /* Fonte um pouco menor para ficar delicado */
+    font-size: 14px; 
     transition: color 0.3s;
     line-height: 1.8; 
     display: block;
@@ -61,7 +61,6 @@
     text-decoration: underline;
 }
 
-/* --- LOGO BRANCA --- */
 .logo-white-container {
     display: flex;
     align-items: center;
@@ -71,13 +70,13 @@
 
 .logo-white-container img {
     filter: brightness(0) invert(1);
-    width: 30px; /* Garante que a logo não fica gigante */
+    width: 30px;
     height: auto;
 }
 
 .logo-white-container .nome-loja-footer {
     color: #FFFFFF;
-    font-size: 24px; /* Diminuí um pouco o tamanho da fonte do nome */
+    font-size: 24px; 
     font-weight: bold;
 }
 
@@ -108,7 +107,6 @@
     transform: scale(1.1);
 }
 
-/* --- RODAPÉ FINAL --- */
 .footer-container hr {
     border: 0;
     border-top: 1px solid rgba(255, 255, 255, 0.2);

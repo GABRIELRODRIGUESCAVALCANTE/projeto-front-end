@@ -1,7 +1,7 @@
 
 
 .product-card {
-    /* OBRIGATÓRIO: Faz o cartão obedecer à grelha */
+    
     width: 100% !important;
     min-width: 0 !important;
     
@@ -21,7 +21,7 @@
     transition: transform 0.2s ease;
 }
 
-/* Container da Imagem */
+
 .card-image-container {
     position: relative;
     width: 100%;
@@ -39,7 +39,7 @@
     max-width: 100%;
     max-height: 100%;
     object-fit: contain; 
-    padding: 15px; /* Espaço interno para o sapato não tocar na borda */
+    padding: 15px; 
 }
 
 /* Badge de desconto */
@@ -87,7 +87,7 @@
 .price-discount { font-size: 20px; font-weight: bold; color: #474747; }
 
 
-/* RESPONSIVIDADE CELULAR */
+
 @media (max-width: 768px) {
     .card-image-container {
         height: 160px !important; 

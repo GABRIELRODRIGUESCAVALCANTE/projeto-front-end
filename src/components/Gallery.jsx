@@ -1,19 +1,13 @@
 import React, { useState } from 'react';
 import './Gallery.css';
-
-// Importando as setas
 import arrowLeft from '../assets/arrow-left.svg';
 import arrowRight from '../assets/arrow-right.svg';
 
 const Gallery = ({ className, width, height, radius, showThumbs, images }) => {
   
   const [currentIndex, setCurrentIndex] = useState(0);
-
-  // --- NOVA LÓGICA DE NAVEGAÇÃO (Carrossel Infinito) ---
-
   const handlePrev = () => {
-    // Se estiver no índice 0 (primeira foto), vai para a última (length - 1).
-    // Caso contrário, apenas subtrai 1.
+   
     setCurrentIndex(currentIndex === 0 ? images.length - 1 : currentIndex - 1);
   };
 

@@ -3,13 +3,13 @@
     display: flex;
     align-items: center; 
     justify-content: center;
-    gap: 100px; /* Espaço entre a imagem e o texto */
+    gap: 100px; 
     padding: 60px 100px;
     background-color: #FFFFFF;
     margin-top: 50px; 
 }
 
-/* --- Lado Esquerdo (Imagem) --- */
+
 .offer-image-wrapper {
     position: relative; 
     width: 50%;
@@ -19,10 +19,10 @@
     height: 400px; 
 }
 
-/* O círculo decorativo atrás do tênis */
+
 .circle-bg {
     position: absolute; 
-    width: 400px;       /* Tamanho do círculo */
+    width: 400px;      
     height: 450px;
     border-radius: 50%; 
     background: linear-gradient(180deg, #E7F6F6 0%, rgba(231, 246, 246, 0) 100%);
@@ -33,21 +33,21 @@
 
 .offer-img {
     position: relative;
-    z-index: 2; /* Fica na frente do círculo */
+    z-index: 2; 
     width: 100%;
     max-width: 550px;
     height: auto;
     filter: drop-shadow(0px 10px 20px rgba(0,0,0,0.2));
 }
 
-/* --- Lado Direito (Texto) --- */
+
 .offer-content {
-    width: 50%; /* Ocupa a outra metade */
+    width: 50%; 
     text-align: left;
 }
 
 .offer-subtitle {
-    color: #C92071; /* A cor rosa primária */
+    color: #C92071; 
     font-weight: bold;
     font-size: 14px;
     display: block;
@@ -56,7 +56,7 @@
 
 .offer-title {
     font-size: 48px;
-    color: #474747; /* Cinza escuro */
+    color: #474747; 
     margin: 0 0 20px 0;
     line-height: 1.1;
 }
@@ -68,12 +68,12 @@
     margin-bottom: 30px;
 }
 
-/* --- Botão --- */
+
 .offer-button {
-    background-color: #C92071; /* Rosa */
+    background-color: #C92071; 
     color: white;
     border: none;
-    border-radius: 5px; /* Bordas levemente arredondadas */
+    border-radius: 5px; 
     padding: 15px 40px;
     font-size: 16px;
     font-weight: bold;
@@ -82,13 +82,13 @@
 }
 
 .offer-button:hover {
-    background-color: #991956; /* Escurece ao passar o mouse */
+    background-color: #991956; 
 }
 
-/* Responsividade (Para telemóvel) */
+
 @media (max-width: 768px) {
     .special-offer-container {
-        flex-direction: column-reverse; /* Imagem vai para baixo no mobile */
+        flex-direction: column-reverse; 
         padding: 40px 20px;
         gap: 40px;
     }
