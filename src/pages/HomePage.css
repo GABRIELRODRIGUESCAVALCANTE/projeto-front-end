@@ -1,12 +1,19 @@
-/* =========================================
-   ESTILOS PRINCIPAIS (DESKTOP)
-   ========================================= */
-
 .hero-gallery {
     margin-bottom: 40px;
     position: relative; 
-    /* Garante que o slider não "vaze" para fora da tela */
     overflow: hidden; 
+}
+
+.hero-gallery::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(50deg, #f5f5f5 15%, rgba(245, 245, 245, 0.6) 40%, rgba(245, 245, 245, 0) 70%);
+    z-index: 5; 
+    pointer-events: none; 
 }
 
 .hero-content-overlay {
@@ -14,7 +21,7 @@
     top: 50%;
     left: 100px;
     transform: translateY(-50%);
-    z-index: 10;
+    z-index: 10; 
     max-width: 450px;
     display: flex;
     flex-direction: column;
@@ -23,7 +30,7 @@
 }
 
 .hero-subtitle {
-    color: #F6AA1C;
+    color: #C92071;
     font-weight: bold;
     font-size: 16px;
     margin-bottom: 20px;
@@ -36,13 +43,17 @@
     font-weight: 800;
     line-height: 1.1;
     margin: 0 0 20px 0;
+    
 }
 
 .hero-description {
-    color: #474747;
-    font-size: 18px;
+    color: #363434;
+    font-size: 22px;
     line-height: 1.5;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+    text-align: justify;
+    hyphens: auto;
+    text-justify: auto;
 }
 
 .btn-hero {
@@ -62,18 +73,16 @@
     transform: translateY(-2px);
 }
 
-/* --- Container Geral do Conteúdo (Substitui o style inline) --- */
 .home-content-container {
     padding: 0 100px 40px 100px;
 }
 
-/* --- COLEÇÕES (Cards) --- */
 .collection-grid {
     display: flex;
     gap: 15px;
     width: 100%;
     justify-content: space-between;
-    flex-wrap: wrap; /* Importante para quebrar linha */
+    flex-wrap: wrap; 
 }
 
 .collection-card {
@@ -81,7 +90,7 @@
     border-radius: 8px;
     height: 250px;
     flex: 1;
-    min-width: 300px; /* Garante tamanho mínimo */
+    min-width: 300px; 
     position: relative;
     overflow: hidden;
     padding: 30px 20px;
@@ -91,7 +100,7 @@
     align-items: flex-start;
     cursor: pointer;
     transition: transform 0.2s;
-    box-sizing: border-box; /* Garante que padding não aumente o tamanho */
+    box-sizing: border-box;
 }
 
 .collection-card:hover {
@@ -150,7 +159,6 @@
     max-width: 60%;
 }
 
-/* --- ÍCONES DE CATEGORIA --- */
 .icons-container {
     display: flex;
     justify-content: center;
@@ -190,7 +198,6 @@
     font-size: 14px;
 }
 
-/* --- ESTILO DOS PRODUTOS --- */
 .product-card {
     width: 280px;
     display: flex;
@@ -232,69 +239,63 @@
     color: #C92071;
 }
 
-/* =========================================
-   RESPONSIVIDADE (TELEMÓVEL / TABLET)
-   ========================================= */
 @media (max-width: 768px) {
 
-    /* 1. Ajuste do Slide Principal */
     .hero-gallery {
-        /* Força a altura a diminuir no mobile, mesmo se o JSX mandar 681px */
         height: auto !important;
-        min-height: 550px; /* Altura mínima para caber o texto */
+        min-height: 550px; 
     }
     
-    /* Se tiveres acesso à classe interna da galeria que segura a imagem, 
-       podes precisar adicionar aqui uma regra para a imagem ficar 'cover' */
+    /* ESCONDER O DEGRADÊ NO CELULAR (já tem a caixa branca) */
+    .hero-gallery::after {
+        display: none;
+    }
+    
     .hero-gallery img {
         height: 100%;
         object-fit: cover;
     }
 
-    /* 2. Centralizar o texto do slide */
     .hero-content-overlay {
-        left: 50%; /* Move para o meio horizontal */
-        top: 50%;  /* Move para o meio vertical */
-        transform: translate(-50%, -50%); /* Centraliza perfeitamente */
-        width: 90%; /* Ocupa quase toda a largura */
-        align-items: center; /* Centraliza itens flex */
-        text-align: center; /* Centraliza texto */
+        left: 50%; 
+        top: 50%; 
+        transform: translate(-50%, -50%);
+        width: 90%; 
+        align-items: center;
+        text-align: center; 
         
-        /* Fundo semitransparente para ler o texto em cima da imagem */
+        /* Esta cor de fundo já resolve o problema no celular */
         background-color: rgba(255, 255, 255, 0.8); 
         padding: 20px;
         border-radius: 10px;
     }
 
     .hero-title {
-        font-size: 32px; /* Reduz fonte do título */
+        font-size: 32px; 
     }
     
     .hero-description {
-        font-size: 14px; /* Reduz descrição */
+        font-size: 14px;
         margin-bottom: 20px;
         color: #333;
     }
 
     .btn-hero {
-        width: 100%; /* Botão ocupa largura toda */
+        width: 100%; 
         text-align: center;
         padding: 12px 0;
     }
 
-    /* 3. Padding do Conteúdo (MUITO IMPORTANTE) */
     .home-content-container {
-        /* Reduz de 100px para 20px no celular */
         padding: 0 20px 40px 20px; 
     }
 
-    /* 4. Ajustes nos Ícones */
     .icons-container {
         gap: 20px;
     }
     
     .icon-circle {
-        width: 70px; /* Ícones menores */
+        width: 70px; 
         height: 70px;
     }
     

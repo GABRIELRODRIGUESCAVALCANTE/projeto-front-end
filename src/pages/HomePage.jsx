@@ -47,7 +47,8 @@ const HomePage = () => {
 
           <div className="hero-content-overlay">
               <span className="hero-subtitle">Melhores ofertas personalizadas</span>
-              <h1 className="hero-title">Queima de estoque imperdivel 🔥</h1>
+              <h1 className="hero-title">Queima
+                 de estoque imperdivel 🔥</h1>
               <p className="hero-description">
                   Chegou a hora de renovar seu estilo com preços imperdíveis! Nossa queima de estoque de sapatos está recheada de modelos incríveis.
               </p>

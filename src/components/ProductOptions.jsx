@@ -12,14 +12,11 @@ const ProductOptions = ({ options, radius, shape, type }) => {
           key={index}
           className={`option-item ${shape === 'circle' ? 'option-circle' : 'option-square'} ${selectedOption === index ? 'selected' : ''}`}
           style={{
-            // Se for quadrado, usa o radius passado. Se for círculo, ignora.
             borderRadius: shape === 'circle' ? '50%' : radius,
-            // Se for tipo "color", o valor da opção vira a cor de fundo
             backgroundColor: type === 'color' ? option : 'transparent' 
           }}
           onClick={() => setSelectedOption(index)}
         >
-          {/* Se for texto, exibe o valor (ex: "39") */}
           {type === 'text' && option}
         </div>
       ))}

@@ -9,7 +9,7 @@ const Logo = () => {
       src={logoImg} 
       alt="Logo React Store" 
       style={{ 
-        width: 'auto',  // Ou o tamanho que preferires
+        width: 'auto',  
         height: '40px' 
       }} 
     />

@@ -1,12 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Importamos o Link para navegar
-import './SpecialOffer.css'; // Vamos criar este CSS no passo 2
+import { Link } from 'react-router-dom';
+import './SpecialOffer.css'; 
 
 export default function SpecialOffer() {
   return (
     <section className="special-offer-container">
       
-      {/* Lado Esquerdo: Imagem */}
       <div className="offer-image-wrapper">
        
         <img 
@@ -15,8 +14,6 @@ export default function SpecialOffer() {
             className="offer-img"
         />
       </div>
-
-      {/* Lado Direito: Texto */}
       <div className="offer-content">
         <span className="offer-subtitle">Oferta especial</span>
         
@@ -30,7 +27,6 @@ export default function SpecialOffer() {
           ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
         </p>
 
-        {/* O Botão que leva aos produtos */}
         <Link to="/produtos">
             <button className="offer-button">Ver Oferta</button>
         </Link>
